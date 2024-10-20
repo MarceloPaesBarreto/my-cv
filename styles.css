@@ -1,0 +1,175 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+}
+
+header {
+    text-align: center;
+    background-color: #003366; /* Dark Blue */
+    color: #FFFFFF; /* White */
+    padding: 20px;
+    border-radius: 8px;
+    position: relative; /* Allows absolute positioning of image */
+    max-width: 800px; /* Centered width */
+    margin: 0 auto; /* Center the header */
+}
+
+h1 {
+    margin: 0;
+    font-size: 2.5em; /* Larger title */
+}
+
+h2 {
+    color: #003366; /* Dark Blue */
+    border-bottom: 2px solid #007BFF; /* Highlight border */
+    padding-bottom: 5px;
+    font-size: 1.8em; /* Increased size for section headings */
+}
+
+main {
+    max-width: 800px; /* Centered width for main content */
+    margin: 20px auto; /* Center the main content */
+}
+
+section {
+    margin: 20px 0;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s; /* Smooth transition */
+    opacity: 0; /* Start hidden for animation */
+    transform: translateY(20px); /* Start slightly lower for animation */
+    animation: fadeInUp 0.5s forwards; /* Animation applied */
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1; /* Fully visible */
+        transform: translateY(0); /* Original position */
+    }
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+ul li {
+    position: relative;
+    padding-left: 20px;
+}
+
+ul li:before {
+    content: "•";
+    color: #007BFF; /* Blue bullet points */
+    position: absolute;
+    left: 0;
+}
+
+.profile-photo {
+    width: 120px; /* Adjusted width */
+    height: 120px; /* Adjusted height to create a square */
+    border-radius: 50%; /* Circular border */
+    position: absolute; /* Position the image */
+    top: 20px; /* Adjust as needed */
+    right: 20px; /* Adjust as needed */
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    header {
+        padding: 15px;
+        position: relative; /* Allow relative positioning */
+    }
+
+    .profile-photo {
+        width: 80px; /* Smaller width for mobile */
+        height: 80px; /* Smaller height for mobile */
+        top: 10px; /* Adjust positioning */
+        right: 10px; /* Adjust positioning */
+    }
+
+    h1 {
+        font-size: 2em; /* Smaller title */
+    }
+
+    h2 {
+        font-size: 1.5em; /* Smaller section headings */
+    }
+
+    p, ul {
+        font-size: 14px; /* Smaller font size for mobile */
+    }
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: #777;
+}
+
+a {
+    color: #007BFF; /* Link color */
+    text-decoration: none; /* No underline */
+}
+
+a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+/* Download Button Styles */
+.download-btn {
+    background-color: #007BFF; /* Button color */
+    color: white; /* Button text color */
+    border: none;
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 20px; /* Padding */
+    font-size: 1em; /* Font size */
+    cursor: pointer; /* Pointer cursor */
+    text-align: center;
+    display: inline-block; /* Align button with text */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+.download-btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Dark Mode Styles */
+.dark-mode {
+    background-color: #121212; /* Dark background */
+    color: #FFFFFF; /* Light text */
+}
+
+.dark-mode header {
+    background-color: #1E1E1E; /* Darker header */
+}
+
+.dark-mode section {
+    background: #1E1E1E; /* Darker section background */
+    color: #FFFFFF; /* Light text */
+}
+
+.dark-mode h2 {
+    color: #00BFFF; /* Bright blue for section headings */
+}
+
+.dark-mode a {
+    color: #1E90FF; /* Light blue for links */
+}
+
+.dark-mode footer {
+    color: #AAA; /* Lighter footer text */
+}
+
+.dark-mode ul li:before {
+    color: #1E90FF; /* Maintain bullet color in dark mode */
+}
