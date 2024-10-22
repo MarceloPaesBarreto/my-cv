@@ -1,48 +1,203 @@
-/* Basic styles */
+/* Basic styling for the body */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     line-height: 1.6;
     margin: 0;
-    padding: 0;
-    background-color: white; /* Light background */
-    color: black; /* Dark text */
+    padding: 20px;
+    background-color: #f4f4f4; /* Light background */
     transition: background-color 0.3s, color 0.3s; /* Smooth transition */
 }
 
 header {
+    text-align: center;
+    color: #FFFFFF;
     padding: 20px;
-    background-color: #f4f4f4; /* Light header background */
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    border-radius: 8px;
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #003366; /* Solid background */
+    overflow: hidden; /* Hide overflow */
+}
+
+header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px; /* A subtle horizontal light */
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+    animation: horizontalLight 4s infinite;
+}
+
+/* Light animation moving horizontally at the top */
+@keyframes horizontalLight {
+    0% {
+        transform: translateX(-100%);
+    }
+    50% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
 }
 
 h1 {
     margin: 0;
-    padding-right: 100px;
+    font-size: 2.5em;
 }
 
-h2 {
-    border-bottom: 2px solid #eee; /* Underline for section titles */
-    padding-bottom: 5px;
+/* Main styling */
+main {
+    max-width: 800px;
+    margin: 20px auto;
 }
 
-h3 {
-    margin: 10px 0;
+/* Section styling */
+section {
+    margin: 20px 0;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s forwards;
 }
 
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Styling for lists */
 ul {
-    list-style-type: disc;
+    list-style-type: none;
+    padding-left: 0;
+}
+
+ul li {
+    position: relative;
     padding-left: 20px;
 }
 
+ul li:before {
+    content: "•";
+    color: #007BFF;
+    position: absolute;
+    left: 0;
+}
+
+/* Profile photo styling */
+.profile-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer styling */
+footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: #777;
+}
+
+/* Visitor counter styling */
+#visitorCounter {
+    color: #666; /* Lighter color for better blending */
+    margin-top: 10px; /* Space between copyright text and counter */
+    font-size: 12px; /* Discreet size */
+}
+
+/* Feedback Section Styles */
+#feedbackButtons {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+#feedbackButtons button {
+    background-color: #007BFF; /* Bootstrap primary color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#feedbackButtons button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+#feedbackMessage {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+#commentInput {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+#submitComment {
+    background-color: #28A745; /* Bootstrap success color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: block;
+    width: 100%;
+}
+
+#submitComment:hover {
+    background-color: #218838; /* Darker shade on hover */
+}
+
+h4 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+#commentList {
+    list-style-type: none;
+    padding: 0;
+}
+
+#commentList li {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9; /* Light background for comments */
+}
+
+/* Link styling */
 a {
-    color: #1e90ff; /* Link color */
-    text-decoration: none; /* No underline */
+    color: #007BFF;
+    text-decoration: none;
 }
 
 a:hover {
-    text-decoration: underline; /* Underline on hover */
+    text-decoration: underline; /* Added underline on hover for links */
 }
 
 /* Dark mode styles */
@@ -55,74 +210,21 @@ header.dark-mode {
     background-color: #1e1e1e; /* Darker header background */
 }
 
-h2.dark-mode {
-    color: #ffffff; /* Light color for section titles in dark mode */
+section.dark-mode {
+    background: #333; /* Dark background for sections */
+    color: white; /* Light text in sections */
 }
 
-a.dark-mode {
-    color: #87cefa; /* Lighter link color in dark mode */
+#commentList li.dark-mode {
+    background-color: #444; /* Dark background for comments in dark mode */
+    color: white; /* Light text for comments */
 }
 
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #f4f4f4; /* Light footer background */
+#submitComment.dark-mode {
+    background-color: #28A745; /* Bootstrap success color */
+    color: white; /* Ensure button text is white */
 }
 
-footer.dark-mode {
-    background-color: #1e1e1e; /* Darker footer background in dark mode */
-}
-
-/* Button styles */
-button {
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button#toggleMode {
-    background-color: #007bff; /* Blue button */
-    color: white;
-    margin-bottom: 15px;
-}
-
-button#toggleMode:hover {
-    background-color: #0056b3; /* Darker blue on hover */
-}
-
-/* Animation styles */
-section {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.3s, transform 0.3s; /* Smooth animation */
-}
-
-section.animate {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Comment section styles */
-#commentInput {
-    width: 100%;
-    padding: 10px;
-    margin-top: 10px;
-}
-
-#commentList {
-    list-style-type: none; /* Remove default list styling */
-    padding: 0; /* No padding */
-}
-
-#commentList li {
-    background: #f4f4f4; /* Light background for comments */
-    margin: 5px 0; /* Space between comments */
-    padding: 10px; /* Padding for comments */
-    border-radius: 5px; /* Rounded corners */
-}
-
-body.dark-mode #commentList li {
-    background: #333; /* Dark background for comments in dark mode */
-    color: white; /* Light text for comments in dark mode */
+#submitComment.dark-mode:hover {
+    background-color: #218838; /* Darker shade on hover */
 }
