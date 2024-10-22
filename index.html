@@ -9,16 +9,16 @@
 </head>
 <body>
     <header>
-    <h1 style="padding-right: 100px;">Marcelo Paes Barreto</h1>
-    <p>
-        Email: <a href="mailto:mopb3@hotmail.com" class="contact" data-tooltip="Email me">mopb3@hotmail.com</a> | 
-        Phone: <a href="tel:+48516411137" class="contact" data-tooltip="Call/WhatsApp me">(+48) 516 411 137</a> | 
-        LinkedIn: <a href="https://www.linkedin.com/in/marcelo-paes-barreto-7207a2161/" target="_blank">Profile</a>
-    </p>
-    <button id="toggleMode">Switch to Dark Mode</button>
-    <a href="My_CVPDF.pdf" download="Marcelo_Paes_Barreto_CV.pdf" class="download-btn">Download CV (PDF)</a>
-    <img src="https://github.com/MarceloPaesBarreto/my-cv/raw/main/photo.jpg" alt="Marcelo Paes Barreto" class="profile-photo">
-</header>
+        <h1 style="padding-right: 100px;">Marcelo Paes Barreto</h1>
+        <p>
+            Email: <a href="mailto:mopb3@hotmail.com" class="contact" data-tooltip="Email me">mopb3@hotmail.com</a> | 
+            Phone: <a href="tel:+48516411137" class="contact" data-tooltip="Call/WhatsApp me">(+48) 516 411 137</a> | 
+            LinkedIn: <a href="https://www.linkedin.com/in/marcelo-paes-barreto-7207a2161/" target="_blank">Profile</a>
+        </p>
+        <button id="toggleMode">Switch to Dark Mode</button>
+        <a href="My_CVPDF.pdf" download="Marcelo_Paes_Barreto_CV.pdf" class="download-btn">Download CV (PDF)</a>
+        <img src="https://github.com/MarceloPaesBarreto/my-cv/raw/main/photo.jpg" alt="Marcelo Paes Barreto" class="profile-photo">
+    </header>
     <main>
         <section>
             <h2>Professional Summary</h2>
@@ -70,6 +70,7 @@
     </main>
     <footer>
         <p>Copyright © Marcelo Paes Barreto</p>
+        <p id="visitorCounter" style="font-size: 12px; margin-top: 10px;">You are visitor number: <span id="counter">0</span></p>
     </footer>
 
     <script>
@@ -94,6 +95,12 @@
                 localStorage.removeItem('dark-mode');
             }
         });
+
+        // Visitor counter
+        let visitCount = localStorage.getItem('visitCount') ? parseInt(localStorage.getItem('visitCount')) : 0;
+        visitCount++;
+        localStorage.setItem('visitCount', visitCount);
+        document.getElementById('counter').textContent = visitCount;
 
         // Scroll animations
         const sections = document.querySelectorAll('section');
