@@ -1,59 +1,71 @@
+/* Basic styling for the body */
 body {
     font-family: 'Roboto', sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 20px;
     background-color: #f4f4f4;
-    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+    transition: background-color 0.3s, color 0.3s;
 }
 
 header {
     text-align: center;
-    background-color: #003366; /* Dark Blue */
-    color: #FFFFFF; /* White */
+    color: #FFFFFF;
     padding: 20px;
     border-radius: 8px;
-    position: relative; /* Allows absolute positioning of image */
-    max-width: 800px; /* Centered width */
-    margin: 0 auto; /* Center the header */
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden; /* Ensure the light animation stays within bounds */
+    background: linear-gradient(120deg, #003366, #003366 30%, #007BFF 50%, #003366 70%, #003366); /* Gradient background */
+    background-size: 200% 200%;
+    animation: movingLight 5s infinite;
+}
+
+/* Light animation for header */
+@keyframes movingLight {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 h1 {
     margin: 0;
-    font-size: 2.5em; /* Larger title */
+    font-size: 2.5em;
 }
 
-h2 {
-    color: #003366; /* Dark Blue */
-    border-bottom: 2px solid #007BFF; /* Highlight border */
-    padding-bottom: 5px;
-    font-size: 1.8em; /* Increased size for section headings */
-}
-
+/* Main styling */
 main {
-    max-width: 800px; /* Centered width for main content */
-    margin: 20px auto; /* Center the main content */
+    max-width: 800px;
+    margin: 20px auto;
 }
 
+/* Section styling */
 section {
     margin: 20px 0;
     background: white;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: background 0.3s; /* Smooth transition */
-    opacity: 0; /* Start hidden for animation */
-    transform: translateY(20px); /* Start slightly lower for animation */
-    animation: fadeInUp 0.5s forwards; /* Animation applied */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s forwards;
 }
 
 @keyframes fadeInUp {
     to {
-        opacity: 1; /* Fully visible */
-        transform: translateY(0); /* Original position */
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
+/* Styling for lists */
 ul {
     list-style-type: none;
     padding-left: 0;
@@ -66,49 +78,24 @@ ul li {
 
 ul li:before {
     content: "•";
-    color: #007BFF; /* Blue bullet points */
+    color: #007BFF;
     position: absolute;
     left: 0;
 }
 
+/* Profile photo styling */
 .profile-photo {
-    width: 120px; /* Adjusted width */
-    height: 120px; /* Adjusted height to create a square */
-    border-radius: 50%; /* Circular border */
-    position: absolute; /* Position the image */
-    top: 20px; /* Adjust as needed */
-    right: 20px; /* Adjust as needed */
-    object-fit: cover; /* Ensures the image covers the area without distortion */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Mobile Styles */
-@media (max-width: 768px) {
-    header {
-        padding: 15px;
-        position: relative; /* Allow relative positioning */
-    }
-
-    .profile-photo {
-        width: 80px; /* Smaller width for mobile */
-        height: 80px; /* Smaller height for mobile */
-        top: 10px; /* Adjust positioning */
-        right: 10px; /* Adjust positioning */
-    }
-
-    h1 {
-        font-size: 2em; /* Smaller title */
-    }
-
-    h2 {
-        font-size: 1.5em; /* Smaller section headings */
-    }
-
-    p, ul {
-        font-size: 14px; /* Smaller font size for mobile */
-    }
-}
-
+/* Footer styling */
 footer {
     text-align: center;
     margin-top: 20px;
@@ -116,60 +103,61 @@ footer {
     color: #777;
 }
 
+/* Link styling */
 a {
-    color: #007BFF; /* Link color */
-    text-decoration: none; /* No underline */
+    color: #007BFF;
+    text-decoration: none;
 }
 
 a:hover {
-    text-decoration: underline; /* Underline on hover */
+    text-decoration: underline;
 }
 
-/* Download Button Styles */
+/* Download button styling */
 .download-btn {
-    background-color: #007BFF; /* Button color */
-    color: white; /* Button text color */
+    background-color: #007BFF;
+    color: white;
     border: none;
-    border-radius: 5px; /* Rounded corners */
-    padding: 10px 20px; /* Padding */
-    font-size: 1em; /* Font size */
-    cursor: pointer; /* Pointer cursor */
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
     text-align: center;
-    display: inline-block; /* Align button with text */
-    transition: background-color 0.3s; /* Smooth transition */
+    display: inline-block;
+    transition: background-color 0.3s;
 }
 
 .download-btn:hover {
-    background-color: #0056b3; /* Darker blue on hover */
+    background-color: #0056b3;
 }
 
-/* Dark Mode Styles */
+/* Dark mode styling */
 .dark-mode {
-    background-color: #121212; /* Dark background */
-    color: #FFFFFF; /* Light text */
+    background-color: #121212;
+    color: #FFFFFF;
 }
 
 .dark-mode header {
-    background-color: #1E1E1E; /* Darker header */
+    background-color: #1E1E1E;
 }
 
 .dark-mode section {
-    background: #1E1E1E; /* Darker section background */
-    color: #FFFFFF; /* Light text */
+    background: #1E1E1E;
+    color: #FFFFFF;
 }
 
 .dark-mode h2 {
-    color: #00BFFF; /* Bright blue for section headings */
+    color: #00BFFF;
 }
 
 .dark-mode a {
-    color: #1E90FF; /* Light blue for links */
+    color: #1E90FF;
 }
 
 .dark-mode footer {
-    color: #AAA; /* Lighter footer text */
+    color: #AAA;
 }
 
 .dark-mode ul li:before {
-    color: #1E90FF; /* Maintain bullet color in dark mode */
+    color: #1E90FF;
 }
