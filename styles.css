@@ -186,7 +186,7 @@ h4 {
 
 /* Dark mode comment list styling */
 body.dark-mode #commentList li {
-    background-color: #444; /* Darker background for comments in dark mode */
+    background-color: #f9f9f9; /* Darker background for comments in dark mode */
     color: #000; /* Black text for comments in dark mode */
 
 /* Link styling */
