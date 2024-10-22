@@ -112,6 +112,13 @@ footer {
     color: #777;
 }
 
+/* Visitor counter styling */
+#visitorCounter {
+    color: #666; /* Lighter color for better blending */
+    margin-top: 10px; /* Space between copyright text and counter */
+    font-size: 12px; /* Discreet size */
+}
+
 /* Link styling */
 a {
     color: #007BFF;
