@@ -103,6 +103,13 @@
         toggleButton.addEventListener('click', () => {
             document.body.classList.toggle('dark-mode');
             toggleButton.textContent = document.body.classList.contains('dark-mode') ? 'Switch to Light Mode' : 'Switch to Dark Mode';
+            
+            // Save user preference in local storage
+            if (document.body.classList.contains('dark-mode')) {
+                localStorage.setItem('dark-mode', 'enabled');
+            } else {
+                localStorage.removeItem('dark-mode');
+            }
         });
 
         // Check for user preference in local storage
@@ -110,15 +117,6 @@
             document.body.classList.add('dark-mode');
             toggleButton.textContent = 'Switch to Light Mode';
         }
-
-        // Save user preference in local storage
-        toggleButton.addEventListener('click', () => {
-            if (document.body.classList.contains('dark-mode')) {
-                localStorage.setItem('dark-mode', 'enabled');
-            } else {
-                localStorage.removeItem('dark-mode');
-            }
-        });
 
         // Scroll animations
         const sections = document.querySelectorAll('section');
