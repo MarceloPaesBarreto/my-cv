@@ -181,8 +181,13 @@ h4 {
     border-radius: 5px;
     margin-bottom: 10px;
     background-color: #f9f9f9; /* Light background for comments */
+    color: #003366; /* Dark Blue text for comments */
 }
 
+/* Dark mode comment list styling */
+body.dark-mode #commentList li {
+    background-color: #444; /* Darker background for comments in dark mode */
+    color: #000; /* Black text for comments in dark mode */
 
 /* Link styling */
 a {
@@ -215,7 +220,7 @@ a:hover {
 /* Dark mode styling */
 .dark-mode {
     background-color: #121212;
-    color: #FFFFFF;
+    color: #ffffff;
 }
 
 .dark-mode header {
