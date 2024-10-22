@@ -4,20 +4,19 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 20px;
-    background-color: #f4f4f4; /* Light background */
+    background-color: #f4f4f4;
     transition: background-color 0.3s, color 0.3s;
 }
 
-/* Dark mode styles */
+/* Dark mode background and text color */
 body.dark-mode {
-    background-color: #121212; /* Dark background */
-    color: #ffffff; /* Light text color */
+    background-color: #222;
+    color: #007BFF; /* Original blue text color */
 }
 
-/* Header styling */
 header {
     text-align: center;
-    color: #FFFFFF;
+    color: #007BFF; /* Original blue text color */
     padding: 20px;
     border-radius: 8px;
     position: relative;
@@ -25,10 +24,6 @@ header {
     margin: 0 auto;
     background-color: #003366; /* Solid background */
     overflow: hidden; /* Hide overflow */
-}
-
-header.dark-mode {
-    background-color: #1e1e1e; /* Dark background for header */
 }
 
 header::before {
@@ -42,22 +37,10 @@ header::before {
     animation: horizontalLight 4s infinite;
 }
 
-/* Light animation moving horizontally at the top */
-@keyframes horizontalLight {
-    0% {
-        transform: translateX(-100%);
-    }
-    50% {
-        transform: translateX(100%);
-    }
-    100% {
-        transform: translateX(-100%);
-    }
-}
-
 h1 {
     margin: 0;
     font-size: 2.5em;
+    color: #007BFF; /* Original blue text color */
 }
 
 /* Main styling */
@@ -69,7 +52,7 @@ main {
 /* Section styling */
 section {
     margin: 20px 0;
-    background: white; /* Light background for sections */
+    background: white;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -78,9 +61,10 @@ section {
     animation: fadeInUp 0.5s forwards;
 }
 
-section.dark-mode {
-    background: #2c2c2c; /* Dark background for sections */
-    color: #ffffff; /* Light text color for sections */
+/* Dark mode section styling */
+body.dark-mode section {
+    background: #333; /* Dark mode background for sections */
+    color: #007BFF; /* Original blue text color */
 }
 
 @keyframes fadeInUp {
@@ -94,6 +78,7 @@ section.dark-mode {
 ul {
     list-style-type: none;
     padding-left: 0;
+    color: #007BFF; /* Original blue text color */
 }
 
 ul li {
@@ -206,21 +191,17 @@ h4 {
     background-color: #f9f9f9; /* Light background for comments */
 }
 
-#commentList li.dark-mode {
-    background-color: #3e3e3e; /* Dark background for comments */
-}
-
 /* Link styling */
 a {
-    color: #007BFF;
+    color: #007BFF; /* Original blue text color */
     text-decoration: none;
 }
 
 a:hover {
-    text-decoration: underline;
+    text-decoration: underline; /* Ensure underline on hover */
 }
 
-/* Dark mode styles for links */
+/* Dark mode link styling */
 body.dark-mode a {
-    color: #5bc0de; /* Adjusted link color for dark mode */
+    color: #007BFF; /* Original blue text color in dark mode */
 }
