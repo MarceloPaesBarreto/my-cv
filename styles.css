@@ -4,24 +4,20 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 20px;
-    background-color: #e0e0e0; /* Slightly darker background for better contrast */
-    font-size: 16px; /* Improved readability */
+    background-color: #f4f4f4;
     transition: background-color 0.3s, color 0.3s;
-}
-
-/* Dark mode background and text color */
-body.dark-mode {
-    background-color: #222; /* Dark background for dark mode */
-    color: #FFFFFF; /* White text in dark mode */
 }
 
 header {
     text-align: center;
-    background-color: #003366; /* Dark Blue */
-    color: #FFFFFF; /* White */
+    color: #FFFFFF;
     padding: 20px;
     border-radius: 8px;
-    margin-bottom: 40px; /* Added space between header and content */
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #003366; /* Solid background */
+    overflow: hidden; /* Hide overflow */
 }
 
 header::before {
@@ -35,15 +31,22 @@ header::before {
     animation: horizontalLight 4s infinite;
 }
 
-h1 {
-    margin: 0;
-    color: #FFFFFF; /* White text for h1 */
+/* Light animation moving horizontally at the top */
+@keyframes horizontalLight {
+    0% {
+        transform: translateX(-100%);
+    }
+    50% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
 }
 
-h2 {
-    color: #003366; /* Dark Blue */
-    border-bottom: 2px solid #007BFF; /* Blue underline */
-    padding-bottom: 5px;
+h1 {
+    margin: 0;
+    font-size: 2.5em;
 }
 
 /* Main styling */
@@ -64,12 +67,6 @@ section {
     animation: fadeInUp 0.5s forwards;
 }
 
-/* Dark mode section styling */
-body.dark-mode section {
-    background: #333; /* Dark mode background for sections */
-    color: #FFFFFF; /* White text in dark mode */
-}
-
 @keyframes fadeInUp {
     to {
         opacity: 1;
@@ -86,12 +83,11 @@ ul {
 ul li {
     position: relative;
     padding-left: 20px;
-    color: #003366; /* Dark Blue text for list items */
 }
 
 ul li:before {
     content: "•";
-    color: #007BFF; /* Blue bullet points */
+    color: #007BFF;
     position: absolute;
     left: 0;
 }
@@ -113,10 +109,7 @@ footer {
     text-align: center;
     margin-top: 20px;
     font-size: 0.9em;
-    color: #777; /* Light gray for footer text */
-    background-color: #f8f9fa; /* Light background for footer */
-    padding: 10px;
-    border-top: 1px solid #ddd;
+    color: #777;
 }
 
 /* Visitor counter styling */
@@ -126,106 +119,61 @@ footer {
     font-size: 12px; /* Discreet size */
 }
 
-/* Feedback Section Styles */
-#feedbackButtons {
-    display: flex;
-    justify-content: center;
-    margin: 20px 0;
-}
-
-#feedbackButtons button {
-    background-color: #007BFF; /* Bootstrap primary color */
-    color: white; /* White text for buttons */
-    border: none;
-    border-radius: 5px;
-    padding: 10px 15px;
-    margin: 0 10px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-#feedbackButtons button:hover {
-    background-color: #0056b3; /* Darker shade on hover */
-}
-
-#feedbackMessage {
-    text-align: center;
-    font-weight: bold;
-    margin-top: 10px;
-}
-
-#commentInput {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-top: 10px;
-}
-
-#submitComment {
-    background-color: #28A745; /* Bootstrap success color */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 15px;
-    margin-top: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    display: block;
-    width: 100%;
-}
-
-#submitComment:hover {
-    background-color: #218838; /* Darker shade on hover */
-}
-
-h4 {
-    margin-top: 20px;
-    margin-bottom: 10px;
-    color: #003366; /* Dark Blue text for h4 */
-}
-
-#commentList {
-    list-style-type: none;
-    padding: 0;
-}
-
-#commentList li {
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    background-color: #f9f9f9; /* Light background for comments */
-    color: #003366; /* Dark Blue text for comments */
-}
-
 /* Link styling */
 a {
-    color: #FFFFFF; /* Keep LinkedIn link white in the header */
+    color: #007BFF;
     text-decoration: none;
 }
 
 a:hover {
-    color: #0056b3; /* Slightly darker blue on hover */
     text-decoration: underline;
 }
 
-/* Dark mode link styling */
-body.dark-mode a {
-    color: #007BFF; /* Original blue text color in dark mode */
+/* Download button styling */
+.download-btn {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    text-align: center;
+    display: inline-block;
+    transition: background-color 0.3s;
 }
 
-/* Responsive design for smaller screens */
-@media screen and (max-width: 768px) {
-    body {
-        padding: 10px;
-    }
+.download-btn:hover {
+    background-color: #0056b3;
+}
 
-    header, section {
-        padding: 10px;
-    }
+/* Dark mode styling */
+.dark-mode {
+    background-color: #121212;
+    color: #FFFFFF;
+}
 
-    h1 {
-        font-size: 1.8em;
-    }
+.dark-mode header {
+    background-color: #1E1E1E;
+}
+
+.dark-mode section {
+    background: #1E1E1E;
+    color: #FFFFFF;
+}
+
+.dark-mode h2 {
+    color: #00BFFF;
+}
+
+.dark-mode a {
+    color: #1E90FF;
+}
+
+.dark-mode footer {
+    color: #AAA;
+}
+
+.dark-mode ul li:before {
+    color: #1E90FF;
 }
