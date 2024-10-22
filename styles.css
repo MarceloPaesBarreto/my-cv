@@ -4,26 +4,24 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 20px;
-    background-color: #f4f4f4;
+    background-color: #e0e0e0; /* Slightly darker background for better contrast */
+    font-size: 16px; /* Improved readability */
     transition: background-color 0.3s, color 0.3s;
 }
 
 /* Dark mode background and text color */
 body.dark-mode {
-    background-color: #222;
-    color: #007BFF; /* Original blue text color */
+    background-color: #222; /* Dark background for dark mode */
+    color: #FFFFFF; /* White text in dark mode */
 }
 
 header {
     text-align: center;
-    color: #007BFF; /* Original blue text color */
+    background-color: #003366; /* Dark Blue */
+    color: #FFFFFF; /* White */
     padding: 20px;
     border-radius: 8px;
-    position: relative;
-    max-width: 800px;
-    margin: 0 auto;
-    background-color: #003366; /* Solid background */
-    overflow: hidden; /* Hide overflow */
+    margin-bottom: 40px; /* Added space between header and content */
 }
 
 header::before {
@@ -39,8 +37,13 @@ header::before {
 
 h1 {
     margin: 0;
-    font-size: 2.5em;
-    color: #007BFF; /* Original blue text color */
+    color: #FFFFFF; /* White text for h1 */
+}
+
+h2 {
+    color: #003366; /* Dark Blue */
+    border-bottom: 2px solid #007BFF; /* Blue underline */
+    padding-bottom: 5px;
 }
 
 /* Main styling */
@@ -64,7 +67,7 @@ section {
 /* Dark mode section styling */
 body.dark-mode section {
     background: #333; /* Dark mode background for sections */
-    color: #007BFF; /* Original blue text color */
+    color: #FFFFFF; /* White text in dark mode */
 }
 
 @keyframes fadeInUp {
@@ -78,17 +81,17 @@ body.dark-mode section {
 ul {
     list-style-type: none;
     padding-left: 0;
-    color: #007BFF; /* Original blue text color */
 }
 
 ul li {
     position: relative;
     padding-left: 20px;
+    color: #003366; /* Dark Blue text for list items */
 }
 
 ul li:before {
     content: "•";
-    color: #007BFF;
+    color: #007BFF; /* Blue bullet points */
     position: absolute;
     left: 0;
 }
@@ -110,7 +113,10 @@ footer {
     text-align: center;
     margin-top: 20px;
     font-size: 0.9em;
-    color: #777;
+    color: #777; /* Light gray for footer text */
+    background-color: #f8f9fa; /* Light background for footer */
+    padding: 10px;
+    border-top: 1px solid #ddd;
 }
 
 /* Visitor counter styling */
@@ -129,7 +135,7 @@ footer {
 
 #feedbackButtons button {
     background-color: #007BFF; /* Bootstrap primary color */
-    color: white;
+    color: white; /* White text for buttons */
     border: none;
     border-radius: 5px;
     padding: 10px 15px;
@@ -176,6 +182,7 @@ footer {
 h4 {
     margin-top: 20px;
     margin-bottom: 10px;
+    color: #003366; /* Dark Blue text for h4 */
 }
 
 #commentList {
@@ -189,19 +196,36 @@ h4 {
     border-radius: 5px;
     margin-bottom: 10px;
     background-color: #f9f9f9; /* Light background for comments */
+    color: #003366; /* Dark Blue text for comments */
 }
 
 /* Link styling */
 a {
-    color: #007BFF; /* Original blue text color */
+    color: #FFFFFF; /* Keep LinkedIn link white in the header */
     text-decoration: none;
 }
 
 a:hover {
-    text-decoration: underline; /* Ensure underline on hover */
+    color: #0056b3; /* Slightly darker blue on hover */
+    text-decoration: underline;
 }
 
 /* Dark mode link styling */
 body.dark-mode a {
     color: #007BFF; /* Original blue text color in dark mode */
+}
+
+/* Responsive design for smaller screens */
+@media screen and (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    header, section {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
 }
