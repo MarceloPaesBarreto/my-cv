@@ -5,9 +5,16 @@ body {
     margin: 0;
     padding: 20px;
     background-color: #f4f4f4; /* Light background */
-    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+    transition: background-color 0.3s, color 0.3s;
 }
 
+/* Dark mode styles */
+body.dark-mode {
+    background-color: #121212; /* Dark background */
+    color: #ffffff; /* Light text color */
+}
+
+/* Header styling */
 header {
     text-align: center;
     color: #FFFFFF;
@@ -18,6 +25,10 @@ header {
     margin: 0 auto;
     background-color: #003366; /* Solid background */
     overflow: hidden; /* Hide overflow */
+}
+
+header.dark-mode {
+    background-color: #1e1e1e; /* Dark background for header */
 }
 
 header::before {
@@ -58,13 +69,18 @@ main {
 /* Section styling */
 section {
     margin: 20px 0;
-    background: white;
+    background: white; /* Light background for sections */
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     opacity: 0;
     transform: translateY(20px);
     animation: fadeInUp 0.5s forwards;
+}
+
+section.dark-mode {
+    background: #2c2c2c; /* Dark background for sections */
+    color: #ffffff; /* Light text color for sections */
 }
 
 @keyframes fadeInUp {
@@ -190,6 +206,10 @@ h4 {
     background-color: #f9f9f9; /* Light background for comments */
 }
 
+#commentList li.dark-mode {
+    background-color: #3e3e3e; /* Dark background for comments */
+}
+
 /* Link styling */
 a {
     color: #007BFF;
@@ -197,34 +217,10 @@ a {
 }
 
 a:hover {
-    text-decoration: underline; /* Added underline on hover for links */
+    text-decoration: underline;
 }
 
-/* Dark mode styles */
-body.dark-mode {
-    background-color: #121212; /* Dark background */
-    color: white; /* Light text */
-}
-
-header.dark-mode {
-    background-color: #1e1e1e; /* Darker header background */
-}
-
-section.dark-mode {
-    background: #333; /* Dark background for sections */
-    color: white; /* Light text in sections */
-}
-
-#commentList li.dark-mode {
-    background-color: #444; /* Dark background for comments in dark mode */
-    color: white; /* Light text for comments */
-}
-
-#submitComment.dark-mode {
-    background-color: #28A745; /* Bootstrap success color */
-    color: white; /* Ensure button text is white */
-}
-
-#submitComment.dark-mode:hover {
-    background-color: #218838; /* Darker shade on hover */
+/* Dark mode styles for links */
+body.dark-mode a {
+    color: #5bc0de; /* Adjusted link color for dark mode */
 }
