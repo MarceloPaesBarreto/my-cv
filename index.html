@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Marcelo Paes Barreto - CV</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="icon" href="Microsoft%20style%20favicon%20with%20initials%20MPB.png" type="image/png">
 </head>
 <body>
     <header>
@@ -67,10 +67,34 @@
                 <li>Excellent Telephone Manner</li>
             </ul>
         </section>
+        <section>
+            <h2>Languages</h2>
+            <ul>
+                <li>Portuguese (Native)</li>
+                <li>English (Fluent)</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Professional Development</h2>
+            <p>I am actively enhancing my skills by learning about artificial intelligence and coding, with a focus on developing innovative solutions to complex problems. My recent experience in creating this CV webpage has further ignited my passion for technology and continuous improvement.</p>
+        </section>
+        <section>
+            <h2>Feedback</h2>
+            <div id="feedbackButtons">
+                <button id="likeButton">👍 Like</button>
+                <button id="dislikeButton">👎 Dislike</button>
+            </div>
+            <p id="feedbackMessage"></p>
+            <h3>Leave a Comment</h3>
+            <textarea id="commentInput" rows="4" placeholder="Write your comment here..."></textarea><br>
+            <button id="submitComment">Submit Comment</button>
+            <h4>Comments:</h4>
+            <ul id="commentList"></ul>
+        </section>
     </main>
     <footer>
         <p>Copyright © Marcelo Paes Barreto</p>
-        <p id="visitorCounter" style="font-size: 12px; margin-top: 10px;">You are visitor number: <span id="counter">0</span></p>
+        <p style="font-size: 0.8em; color: #777;">Page views: <span id="viewCounter">0</span></p>
     </footer>
 
     <script>
@@ -96,12 +120,6 @@
             }
         });
 
-        // Visitor counter
-        let visitCount = localStorage.getItem('visitCount') ? parseInt(localStorage.getItem('visitCount')) : 0;
-        visitCount++;
-        localStorage.setItem('visitCount', visitCount);
-        document.getElementById('counter').textContent = visitCount;
-
         // Scroll animations
         const sections = document.querySelectorAll('section');
         const observer = new IntersectionObserver((entries) => {
@@ -115,6 +133,67 @@
         sections.forEach(section => {
             observer.observe(section);
         });
+
+        // Simple view counter
+        let viewCount = parseInt(localStorage.getItem('viewCount')) || 0;
+        viewCount++;
+        localStorage.setItem('viewCount', viewCount);
+        document.getElementById('viewCounter').textContent = viewCount;
+
+        // Like/Dislike functionality
+        let likes = parseInt(localStorage.getItem('likes')) || 0;
+        let dislikes = parseInt(localStorage.getItem('dislikes')) || 0;
+
+        document.getElementById('likeButton').addEventListener('click', () => {
+            likes++;
+            localStorage.setItem('likes', likes);
+            updateFeedbackMessage();
+        });
+
+        document.getElementById('dislikeButton').addEventListener('click', () => {
+            dislikes++;
+            localStorage.setItem('dislikes', dislikes);
+            updateFeedbackMessage();
+        });
+
+        // Update feedback message
+        function updateFeedbackMessage() {
+            const feedbackMessage = `Likes: ${likes} | Dislikes: ${dislikes}`;
+            document.getElementById('feedbackMessage').textContent = feedbackMessage;
+        }
+        updateFeedbackMessage(); // Initial call to display likes/dislikes
+
+        // Comment functionality
+        document.getElementById('submitComment').addEventListener('click', () => {
+            const commentInput = document.getElementById('commentInput');
+            const comment = commentInput.value.trim();
+            if (comment) {
+                const commentList = document.getElementById('commentList');
+                const newComment = document.createElement('li');
+                newComment.textContent = comment;
+                commentList.appendChild(newComment);
+                commentInput.value = ''; // Clear the input
+                saveComments();
+            }
+        });
+
+        // Save comments to local storage
+        function saveComments() {
+            const comments = Array.from(document.getElementById('commentList').children).map(li => li.textContent);
+            localStorage.setItem('comments', JSON.stringify(comments));
+        }
+
+        // Load comments from local storage
+        function loadComments() {
+            const comments = JSON.parse(localStorage.getItem('comments')) || [];
+            comments.forEach(comment => {
+                const commentList = document.getElementById('commentList');
+                const newComment = document.createElement('li');
+                newComment.textContent = comment;
+                commentList.appendChild(newComment);
+            });
+        }
+        loadComments(); // Initial call to load comments
     </script>
 </body>
 </html>
