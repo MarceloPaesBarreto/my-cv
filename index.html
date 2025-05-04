@@ -264,6 +264,7 @@
             right: 170px;
             top: 50%;
             transform: translateY(-50%);
+            z-index:10;
         }
         
         .toggle {
@@ -289,6 +290,7 @@
             background-color: white;
             border-radius: 50%;
             transition: transform 0.3s ease;
+            z-index:2;
         }
         
         .toggle.dark .toggle-handle {
@@ -300,6 +302,7 @@
             top: 50%;
             transform: translateY(-50%);
             color: white;
+            z-index: 1;
         }
         
         .sun {
@@ -517,8 +520,8 @@
         <div class="toggle-container" id="darkModeToggle">
             <div class="toggle" id="toggle">
                 <div class="toggle-handle"></div>
-                <i class="fas fa-lightbulb toggle-icon sun"></i>
-                <i class="fas fa-star toggle-icon moon"></i>
+                <i class="fas fa-sun toggle-icon sun"></i>
+                <i class="fas fa-moon toggle-icon moon"></i>
             </div>
         </div>
         
@@ -1045,35 +1048,50 @@
         });
     });
 </script>
-        // Dark mode toggle functionality
-        const toggle = document.getElementById('toggle');
-        const body = document.body;
-        
-        // Check if user preference is stored
-        const darkMode = localStorage.getItem('darkMode');
-        if (darkMode === 'enabled') {
+    
+    // Dark mode toggle functionality
+    document.addEventListener('DOMContentLoaded', function() {
+    const toggle = document.getElementById('toggle');
+    const body = document.body;
+    
+    if (!toggle) {
+        console.error("Toggle element not found!");
+        return;
+    }
+    
+    // Check if user preference is stored
+    const darkMode = localStorage.getItem('darkMode');
+    if (darkMode === 'enabled') {
+        enableDarkMode();
+    }
+    
+    // Add click event
+    toggle.addEventListener('click', function() {
+        console.log("Toggle clicked!");
+        if (body.classList.contains('dark-mode')) {
+            disableDarkMode();
+        } else {
             enableDarkMode();
         }
-        
-        toggle.addEventListener('click', () => {
-            if (body.classList.contains('dark-mode')) {
-                disableDarkMode();
-            } else {
-                enableDarkMode();
-            }
-        });
-        
-        function enableDarkMode() {
-            body.classList.add('dark-mode');
-            toggle.classList.add('dark');
-            localStorage.setItem('darkMode', 'enabled');
-        }
-        
-        function disableDarkMode() {
-            body.classList.remove('dark-mode');
-            toggle.classList.remove('dark');
-            localStorage.setItem('darkMode', null);
-        }
+    });
+    
+    function enableDarkMode() {
+        console.log("Enabling dark mode");
+        body.classList.add('dark-mode');
+        toggle.classList.add('dark');
+        localStorage.setItem('darkMode', 'enabled');
+    }
+    
+    function disableDarkMode() {
+        console.log("Disabling dark mode");
+        body.classList.remove('dark-mode');
+        toggle.classList.remove('dark');
+        localStorage.setItem('darkMode', null);
+    }
+    
+    // Log initial state for debugging
+    console.log("Dark mode script loaded. Current state:", body.classList.contains('dark-mode') ? "dark" : "light");
+});
         
         // Animate progress bars on scroll
         document.addEventListener('DOMContentLoaded', function() {
