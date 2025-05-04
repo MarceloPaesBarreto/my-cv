@@ -480,6 +480,99 @@
         .goog-te-menu-value span:first-child {
             display: inline;
         }
+
+        /* Fix form labels and backgrounds in dark mode */
+.bg-gray-100 {
+    background-color: var(--background);
+    transition: background-color 0.3s ease;
+}
+
+.dark-mode .bg-gray-100 {
+    background-color: var(--card-bg);
+}
+
+.form-group label {
+    color: var(--text-color);
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.dark-mode .form-group label {
+    color: var(--text-light);
+}
+
+.dark-mode .form-control {
+    background-color: #2d3748;
+    color: #f7fafc;
+    border-color: #4a5568;
+}
+
+.dark-mode .form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+}
+
+/* Fix for placeholder text in dark mode */
+.dark-mode .form-control::placeholder {
+    color: #a0aec0;
+}
+
+/* Ensure the background colors for references are visible */
+.dark-mode .bg-gray-50 {
+    background-color: #2d3748 !important;
+}
+
+.dark-mode .bg-gray-800 {
+    background-color: #1a202c !important;
+}
+
+.dark-mode .bg-gray-900 {
+    background-color: #171923 !important;
+}
+
+/* Fix for reference boxes */
+.dark-mode .p-4.bg-gray-50 {
+    background-color: #2d3748 !important;
+    border: 1px solid #4a5568;
+}
+
+/* Ensure contact form elements are visible */
+.dark-mode .card#contact label {
+    color: var(--text-light);
+}
+
+/* Ensure toggle works well at smaller screen sizes */
+@media (max-width: 768px) {
+    .toggle-container {
+        margin: 1rem auto;
+    }
+}
+
+/* Add a hover effect to the toggle for better usability */
+.toggle:hover {
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+/* Fix for any light-colored icons in dark mode */
+.dark-mode .text-primary,
+.dark-mode .fas,
+.dark-mode .fab {
+    color: var(--secondary-color);
+}
+
+/* Make interest cards look better in dark mode */
+.dark-mode .border-gray-300 {
+    border-color: var(--border-color);
+    background-color: var(--card-bg);
+}
+
+/* Fix any text that might be hard to read in forms */
+.dark-mode input::placeholder,
+.dark-mode textarea::placeholder {
+    color: #a0aec0;
+}
     </style>
 </head>
 <body>
