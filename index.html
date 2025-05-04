@@ -1,7 +1,1171 @@
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marcelo Paes Barreto | Azure Cloud & Management Specialist</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icon-css@3.5.0/css/flag-icon.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c4ead;
+            --primary-dark: #1a3a9e;
+            --secondary-color: #4c74e9;
+            --text-color: #333;
+            --text-light: #666;
+            --background: #f8fafc;
+            --card-bg: #fff;
+            --border-color: #e2e8f0;
+        }
+        
+        body.dark-mode {
+            --primary-color: #3b5cd9;
+            --primary-dark: #2a49b8;
+            --secondary-color: #627ef0;
+            --text-color: #f1f5f9;
+            --text-light: #cbd5e1;
+            --background: #0f172a;
+            --card-bg: #1e293b;
+            --border-color: #334155;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--background);
+            color: var(--text-color);
+            transition: background-color 0.3s ease, color 0.3s ease;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1.5rem;
+            position: relative;
+        }
+        
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+        
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 0.5rem;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, color 0.3s ease;
+            position: relative;
+        }
+        
+        h2 {
+            color: var(--primary-color);
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .profile-photo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid white;
+        }
+        
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
+        .progress-bar {
+            height: 10px;
+            background: #e2e8f0;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+        
+        .progress {
+            height: 100%;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            border-radius: 5px;
+            transition: width 1s ease;
+        }
+        
+        .timeline-item {
+            padding-left: 2rem;
+            position: relative;
+            margin-bottom: 2rem;
+        }
+        
+        .timeline-marker {
+            position: absolute;
+            left: 0;
+            top: 0.25rem;
+            width: 1rem;
+            height: 1rem;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+        }
+        
+        .timeline-connector {
+            position: absolute;
+            left: 0.5rem;
+            top: 1.5rem;
+            bottom: 0;
+            width: 2px;
+            transform: translateX(-50%);
+            background-color: var(--primary-color);
+        }
+        
+        .company, .date {
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+        }
+        
+        .certification {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .certification:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .certification h3 {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+        
+        .certification p {
+            color: var(--text-light);
+        }
+        
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .project-card {
+            border: 1px solid var(--border-color);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .project-card h3 {
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 0.25rem;
+            font-size: 0.75rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-info i {
+            margin-right: 0.5rem;
+            color: var(--primary-color);
+        }
+        
+        .language-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .language-flag {
+            width: 24px;
+            height: 18px;
+            margin-right: 0.75rem;
+        }
+        
+        .contact-form {
+            margin-top: 1.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: 0.25rem;
+            background-color: var(--card-bg);
+            color: var(--text-color);
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .btn:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        .toggle-container {
+            display: flex;
+            align-items: center;
+            position: absolute;
+            right: 200px; /* Increase this value to move it further left */
+            top: 50%;
+            transform: translateY(-50%);
+            z-index:10;
+        }
+        
+        .toggle {
+            position: relative;
+            width: 60px;
+            height: 30px;
+            background-color: #4a5568;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .toggle.dark {
+            background-color: #2d3748;
+        }
+        
+        .toggle-handle {
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 26px;
+            height: 26px;
+            background-color: white;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+            z-index:2;
+        }
+        
+        .toggle.dark .toggle-handle {
+            transform: translateX(30px);
+        }
+        
+        .toggle-icon {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            z-index: 1;
+        }
+        
+        .sun {
+            left: 8px;
+            opacity: 1;
+        }
+        
+        .moon {
+            right: 8px;
+            opacity: 0;
+        }
+        
+        .toggle.dark .sun {
+            opacity: 0;
+        }
+        
+        .toggle.dark .moon {
+            opacity: 1;
+        }
+        
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+        
+        .cv-btn {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: white;
+            color: var(--primary-color);
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            z-index: 5; /*Lower z-index than toggle */
+        }
+        
+        .cv-btn:hover {
+            background-color: #e2e8f0;
+        }
+        
+        .cv-btn i {
+            margin-right: 0.5rem;
+        }
+        
+        .highlight-cert {
+            border: 2px solid var(--primary-color);
+            background-color: rgba(76, 116, 233, 0.1);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .highlight-cert::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            border-style: solid;
+            border-width: 0 50px 50px 0;
+            border-color: transparent var(--primary-color) transparent transparent;
+        }
+        
+        .cert-logos {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .cert-logos img {
+            max-height: 60px;
+            margin-right: 1rem;
+        }
+        
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .toggle-container {
+                position: relative;
+                top: auto;
+                right: auto;
+                transform: none;
+                margin-top: 1rem;
+                justify-content: center;
+            }
+            
+            .cv-btn {
+                position: relative;
+                top: auto;
+                right: auto;
+                transform: none;
+                margin-top: 1rem;
+            }
+            
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cert-grid {
+                grid-template-columns: 1fr;
+            }
+        }
 
-<!-- Google Translate Integration -->
-<script type="text/javascript">
+        /* Translation bar styles */
+        .translation-bar {
+            display: flex;
+            justify-content: flex-end;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .translation-bar a {
+            margin: 0 5px;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .translation-bar a:hover {
+            opacity: 1;
+        }
+        
+        .translation-bar img {
+            width: 24px;
+            height: 18px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        /* Hide Google Translate widget */
+        #google_translate_element {
+            position: absolute;
+            top: -1000px;
+            left: -1000px;
+        }
+        
+        /* Fix for Google Translate breaking some layout */
+        .goog-te-banner-frame {
+            display: none !important;
+        }
+        
+        body {
+            top: 0 !important;
+        }
+        
+        .goog-te-gadget {
+            font-size: 0px !important;
+        }
+        
+        .goog-te-gadget div {
+            display: inline;
+        }
+        
+        .goog-te-menu-value span {
+            display: none;
+        }
+        
+        .goog-te-menu-value span:first-child {
+            display: inline;
+        }
+
+        /* Fix form labels and backgrounds in dark mode */
+.bg-gray-100 {
+    background-color: var(--background);
+    transition: background-color 0.3s ease;
+}
+
+.dark-mode .bg-gray-100 {
+    background-color: var(--card-bg);
+}
+
+.form-group label {
+    color: var(--text-color);
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.dark-mode .form-group label {
+    color: var(--text-light);
+}
+
+.dark-mode .form-control {
+    background-color: #2d3748;
+    color: #f7fafc;
+    border-color: #4a5568;
+}
+
+.dark-mode .form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+}
+
+/* Fix for placeholder text in dark mode */
+.dark-mode .form-control::placeholder {
+    color: #a0aec0;
+}
+
+/* Ensure the background colors for references are visible */
+.dark-mode .bg-gray-50 {
+    background-color: #2d3748 !important;
+}
+
+.dark-mode .bg-gray-800 {
+    background-color: #1a202c !important;
+}
+
+.dark-mode .bg-gray-900 {
+    background-color: #171923 !important;
+}
+
+/* Fix for reference boxes */
+.dark-mode .p-4.bg-gray-50 {
+    background-color: #2d3748 !important;
+    border: 1px solid #4a5568;
+}
+
+/* Ensure contact form elements are visible */
+.dark-mode .card#contact label {
+    color: var(--text-light);
+}
+
+/* Ensure toggle works well at smaller screen sizes */
+@media (max-width: 768px) {
+    .toggle-container {
+        margin: 1rem auto;
+    }
+}
+
+/* Add a hover effect to the toggle for better usability */
+.toggle:hover {
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+/* Fix for any light-colored icons in dark mode */
+.dark-mode .text-primary,
+.dark-mode .fas,
+.dark-mode .fab {
+    color: var(--secondary-color);
+}
+
+/* Make interest cards look better in dark mode */
+.dark-mode .border-gray-300 {
+    border-color: var(--border-color);
+    background-color: var(--card-bg);
+}
+
+/* Fix any text that might be hard to read in forms */
+.dark-mode input::placeholder,
+.dark-mode textarea::placeholder {
+    color: #a0aec0;
+}
+
+/* Reference submission messages */
+.bg-red-100 {
+    background-color: #fee2e2;
+}
+.text-red-700 {
+    color: #b91c1c;
+}
+.bg-green-100 {
+    background-color: #dcfce7;
+}
+.text-green-700 {
+    color: #15803d;
+}
+      
+    </style>
+</head>
+<body>
+    <!-- Google Translate Element (hidden) -->
+   <div id="google_translate_element" style="position: absolute; top: -1000px; left: -1000px;"></div>
+    
+    <header>
+        <div class="translation-bar">
+            <a href="#" class="language-flag" data-lang="en" title="English"><img src="https://cdn.jsdelivr.net/npm/flag-icon-css@3.5.0/flags/4x3/gb.svg" alt="English"></a>
+            <a href="#" class="language-flag" data-lang="pt" title="Portuguese"><img src="https://cdn.jsdelivr.net/npm/flag-icon-css@3.5.0/flags/4x3/br.svg" alt="Portuguese"></a>
+            <a href="#" class="language-flag" data-lang="pl" title="Polish"><img src="https://cdn.jsdelivr.net/npm/flag-icon-css@3.5.0/flags/4x3/pl.svg" alt="Polish"></a>
+            <a href="#" class="language-flag" data-lang="fr" title="French"><img src="https://cdn.jsdelivr.net/npm/flag-icon-css@3.5.0/flags/4x3/fr.svg" alt="French"></a>
+            <a href="#" class="language-flag" data-lang="es" title="Spanish"><img src="https://cdn.jsdelivr.net/npm/flag-icon-css@3.5.0/flags/4x3/es.svg" alt="Spanish"></a>
+            <a href="#" class="language-flag" data-lang="de" title="German"><img src="https://cdn.jsdelivr.net/npm/flag-icon-css@3.5.0/flags/4x3/de.svg" alt="German"></a>
+        </div>
+        
+      <div class="header-content">
+    <div class="profile-photo">
+        <img src="photo.jpg" alt="Profile Photo">
+    </div>
+    <div>
+        <h1 class="text-3xl font-bold">Marcelo Paes Barreto</h1>
+        <p class="text-xl">Azure Cloud & Infrastructure Specialist</p>
+        <div class="mt-2">
+            <a href="mailto:mopb3@hotmail.com" class="text-white hover:text-gray-200">
+                <i class="fas fa-envelope mr-2"></i>mopb3@hotmail.com
+            </a>
+            <span class="mx-2">|</span>
+            <a href="tel:+48516411137" class="text-white hover:text-gray-200">
+                <i class="fas fa-phone mr-2"></i>+48 516 411 137
+            </a>
+            <span class="mx-2">|</span>
+            <a href="#" class="text-white hover:text-gray-200">
+                <i class="fab fa-linkedin mr-2"></i>LinkedIn Profile
+            </a>
+        </div>
+    </div>
+</div>
+        
+        <div class="toggle-container" id="darkModeToggle">
+            <div class="toggle" id="toggle">
+                <div class="toggle-handle"></div>
+                <i class="fas fa-sun toggle-icon sun"></i>
+                <i class="fas fa-moon toggle-icon moon"></i>
+            </div>
+        </div>
+        
+        <a href="My_CVPDF.pdf" class="cv-btn" download>
+            <i class="fas fa-download"></i> Download CV
+        </a>
+    </header>
+    
+    <div class="section-container">
+        <div class="card" id="summary">
+            <h2>Professional Summary</h2>
+            <p>As a highly motivated and goal-oriented professional with experience in the technology industry, I am passionate about driving success and delivering exceptional results. My expertise lies in cloud infrastructure management (Microsoft Azure), IT support, technical troubleshooting, communication, problem-solving, and leadership. I thrive in collaborative environments and am committed to continuous learning and self-improvement. As an enthusiastic team player, I am eager to contribute my skills and make a significant impact, helping achieve shared goals and objectives.</p>
+        </div>
+        
+        <div class="card" id="experience">
+            <h2>Professional Experience</h2>
+            
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-connector"></div>
+                <h3 class="text-xl font-bold">Technical Specialist – Cloud & Infrastructure Management</h3>
+                <div class="company">LTIMindtree, Kraków, Poland</div>
+                <div class="date">November 2022 - Present</div>
+                <ul class="mt-3 list-disc pl-5">
+                    <li>Providing highest standard service for Microsoft Azure Cloud Solutions.</li>
+                    <li>Supporting Microsoft customers and troubleshooting Azure Backup & Recovery issues.</li>
+                    <li>Managing Backup Vault, Recovery Service Vault (RSV), ASR, Virtual Machine creation, etc.</li>
+                    <li>Working with Azure Entra ID for account management and access control.</li>
+                    <li>Implementing security best practices and ensuring compliance with industry standards.</li>
+                    <li>Collaborating with cross-functional teams to resolve complex technical issues.</li>
+                </ul>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-connector"></div>
+                <h3 class="text-xl font-bold">Team Lead</h3>
+                <div class="company">HCL Tech</div>
+                <div class="date">2018 - 2022</div>
+                <ul class="mt-3 list-disc pl-5">
+                    <li>Responsible for business continuity, managing a team of 15 agents.</li>
+                    <li>Providing training and handling escalations, reports, and SLAs.</li>
+                    <li>Liaising with clients and auditing agents' tickets.</li>
+                    <li>Implementing team performance improvement strategies and achieving KPI targets.</li>
+                    <li>Conducting regular performance reviews and providing constructive feedback.</li>
+                    <li>Managing resource allocation and project timelines effectively.</li>
+                    <li>Developing and implementing strategic initiatives to improve team efficiency and customer satisfaction.</li>
+                    <li>Mentoring team members and facilitating professional development opportunities.</li>
+                    <li>Creating and maintaining documentation for training and operational procedures.</li>
+                </ul>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <h3 class="text-xl font-bold">Senior I.T. Analyst</h3>
+                <div class="company">HCL Tech</div>
+                <div class="date">2018 - 2022</div>
+                <ul class="mt-3 list-disc pl-5">
+                    <li>Handling customer needs and providing necessary information and solutions.</li>
+                    <li>Preparing documentation and auditing tickets.</li>
+                    <li>Training new joiners and supporting team lead on new projects.</li>
+                    <li>Resolving complex technical issues and ensuring high customer satisfaction.</li>
+                    <li>Creating knowledge base articles and standard operating procedures.</li>
+                    <li>Collaborating with other teams to implement process improvements.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="card" id="skills">
+            <h2>Skills</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <h3 class="text-xl font-bold mb-3">Technical Skills</h3>
+                    
+                    <div class="mb-4">
+                        <div class="skill-name">
+                            <span>Microsoft Azure Cloud Services</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <div class="skill-name">
+                            <span>Azure Backup & Recovery</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 95%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <div class="skill-name">
+                            <span>Azure Entra ID</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <div class="skill-name">
+                            <span>Virtual Machine Management</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <div class="skill-name">
+                            <span>IT Support & Troubleshooting</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 95%;"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-3">Soft Skills</h3>
+                    
+                    <div class="mb-4">
+                        <div class="skill-name">
+                            <span>Leadership & Management</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 95%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <div class="skill-name">
+                            <span>Communication</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <div class="skill-name">
+                            <span>Problem-solving</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 95%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <div class="skill-name">
+                            <span>Team Collaboration</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 95%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <div class="skill-name">
+                            <span>Customer Service</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card" id="projects">
+            <h2>Azure Projects</h2>
+            
+            <div class="project-grid">
+                <div class="project-card">
+                    <h3>Azure Backup & Recovery</h3>
+                    <p>Implementation and troubleshooting of backup and recovery solutions for Microsoft customers, ensuring data protection and business continuity.</p>
+                    <div class="mt-3">
+                        <span class="badge">Recovery Service Vault</span>
+                        <span class="badge">ASR</span>
+                        <span class="badge">Backup Policies</span>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <h3>Azure Entra ID Management</h3>
+                    <p>Managing user identities, access controls, and security policies to ensure secure access to Azure resources and applications.</p>
+                    <div class="mt-3">
+                        <span class="badge">Identity Management</span>
+                        <span class="badge">Access Control</span>
+                        <span class="badge">Security Policies</span>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <h3>Virtual Machine Deployment</h3>
+                    <p>Creating and configuring virtual machines in Azure with optimal performance settings for various client requirements.</p>
+                    <div class="mt-3">
+                        <span class="badge">VM Creation</span>
+                        <span class="badge">Resource Optimization</span>
+                        <span class="badge">Performance Tuning</span>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <h3>Azure Security Implementation</h3>
+                    <p>Implementing security best practices and compliance standards for Azure infrastructure to protect client data.</p>
+                    <div class="mt-3">
+                        <span class="badge">Security Best Practices</span>
+                        <span class="badge">Compliance</span>
+                        <span class="badge">Data Protection</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card" id="education">
+            <h2>Education & Certifications</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-3">Education</h3>
+                    <div class="mb-4">
+                        <h4 class="text-lg font-semibold">Bachelor in Marketing & Management</h4>
+                        <p>Faculdade Boa Viagem</p>
+                        <p>Graduated: 2009</p>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-3">Professional Development</h3>
+                    <ul class="list-disc pl-5">
+                        <li class="mb-2">Microsoft Azure Fundamentals AZ-900 Certification</li>
+                        <li class="mb-2">ITIL 4 Foundation Training</li>
+                        <li class="mb-2">Leads Academy Leadership Program at HCLTech</li>
+                        <li class="mb-2">Continuous learning in AI tools and technology</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="mt-8">
+                <h3 class="text-xl font-bold mb-4">Azure Certifications</h3>
+                
+                <div class="highlight-cert">
+                    <div class="cert-logos">
+                        <img src="https://learn.microsoft.com/media/learn/certification/badges/microsoft-certified-fundamentals-badge.svg" alt="Microsoft Azure Certification Badge">
+                    </div>
+                    <h3 class="text-2xl font-bold">Microsoft Azure Fundamentals AZ-900</h3>
+                    <p>Validated expertise in cloud concepts, Azure services, security, privacy, compliance, and trust.</p>
+                    <a href="#" class="btn mt-3">View Certification</a>
+                </div>
+                
+                <h3 class="text-xl font-bold my-4">LinkedIn Learning Certifications</h3>
+                
+                <div class="cert-grid">
+                    <div class="certification">
+                        <h3>Creating Positive Conversations with Challenging Customers</h3>
+                        <p>LinkedIn Learning</p>
+                    </div>
+                    
+                    <div class="certification">
+                        <h3>Customer Service: Problem Solving and Troubleshooting</h3>
+                        <p>LinkedIn Learning</p>
+                    </div>
+                    
+                    <div class="certification">
+                        <h3>Leadership Foundations</h3>
+                        <p>LinkedIn Learning</p>
+                    </div>
+                    
+                    <div class="certification">
+                        <h3>Project Management Foundations</h3>
+                        <p>LinkedIn Learning</p>
+                    </div>
+                    
+                    <div class="certification">
+                        <h3>Communication Foundations</h3>
+                        <p>LinkedIn Learning</p>
+                    </div>
+                    
+                    <div class="certification">
+                        <h3>Azure Administration: Implement and Manage Storage</h3>
+                        <p>LinkedIn Learning</p>
+                    </div>
+                    
+                    <div class="certification">
+                        <h3>Azure Identity Services</h3>
+                        <p>LinkedIn Learning</p>
+                    </div>
+                    
+                    <div class="certification">
+                        <h3>Azure Virtual Machine Management</h3>
+                        <p>LinkedIn Learning</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card" id="languages">
+            <h2>Languages</h2>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="language-item">
+                    <img src="https://cdn.jsdelivr.net/npm/flag-icon-css@3.5.0/flags/4x3/br.svg" alt="Portuguese" class="language-flag">
+                    <div>
+                        <h3 class="font-bold">Portuguese</h3>
+                        <p>Native</p>
+                    </div>
+                </div>
+                
+                <div class="language-item">
+                    <img src="https://cdn.jsdelivr.net/npm/flag-icon-css@3.5.0/flags/4x3/gb.svg" alt="English" class="language-flag">
+                    <div>
+                        <h3 class="font-bold">English</h3>
+                        <p>Fluent</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card" id="ai-tools">
+            <h2>AI Tools Usage</h2>
+            <p>I am actively enhancing my skills by learning about artificial intelligence and leveraging AI tools, with a focus on developing innovative solutions to complex problems. I have experience using AI tools to create webpages, analyze data, and improve productivity.</p>
+            <p class="mt-3">My recent experience in creating this portfolio website with AI assistance has further ignited my passion for technology and continuous improvement. I believe that combining human expertise with AI capabilities can lead to exceptional results and innovations.</p>
+        </div>
+        
+        <div class="card" id="interests">
+            <h2>Personal Interests</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div class="text-center p-4 border rounded-lg border-gray-300">
+                    <i class="fas fa-guitar text-4xl mb-2 text-primary"></i>
+                    <h3 class="font-bold">Playing Guitar</h3>
+                    <p class="text-sm">Enjoy playing various musical styles</p>
+                </div>
+                
+                <div class="text-center p-4 border rounded-lg border-gray-300">
+                    <i class="fas fa-futbol text-4xl mb-2 text-primary"></i>
+                    <h3 class="font-bold">Football</h3>
+                    <p class="text-sm">Playing and watching matches</p>
+                </div>
+                
+                <div class="text-center p-4 border rounded-lg border-gray-300">
+                    <i class="fas fa-utensils text-4xl mb-2 text-primary"></i>
+                    <h3 class="font-bold">Cooking</h3>
+                    <p class="text-sm">Experimenting with new recipes</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card" id="reference-system">
+    <h2>References</h2>
+    <p class="mb-4">Professional references from colleagues and supervisors are displayed below. If you've been asked to provide a reference, please fill out the form.</p>
+    
+    <div class="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg mb-4">
+        <div id="ref-form-container">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="form-group">
+                    <label for="ref_name_field">Name</label>
+                    <input type="text" id="ref_name_field" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="ref_company_field">Company</label>
+                    <input type="text" id="ref_company_field" class="form-control" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="ref_position_field">Position</label>
+                <input type="text" id="ref_position_field" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="ref_code_field">Reference Code</label>
+                <input type="text" id="ref_code_field" class="form-control" required>
+                <small class="text-gray-500 dark:text-gray-400">Please enter the reference code provided to you</small>
+            </div>
+            <div class="form-group">
+                <label for="ref_text_field">Reference</label>
+                <textarea id="ref_text_field" class="form-control" rows="4" required></textarea>
+            </div>
+            <button type="button" id="ref_submit_button" class="btn">Submit Reference</button>
+            <div id="ref_message" class="mt-3 p-3 rounded hidden"></div>
+        </div>
+    </div>
+    
+    <div id="references-display" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="p-4 bg-gray-50 dark:bg-gray-900 rounded-lg">
+            <p class="italic">"Marcelo is an exceptional professional with outstanding technical skills and a collaborative approach."</p>
+            <p class="font-bold mt-2">- John Smith</p>
+            <p>Senior Manager, Example Corporation</p>
+        </div>
+    </div>
+</div>
+        
+        <div class="card" id="contact">
+            <h2>Contact Me</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <div class="contact-info">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:mopb3@hotmail.com">mopb3@hotmail.com</a>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fas fa-phone"></i>
+                        <a href="tel:+48516411137">+48 516 411 137</a>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Kraków, Poland</span>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fab fa-linkedin"></i>
+                        <a href="#">LinkedIn Profile</a>
+                    </div>
+                </div>
+                
+                <div>
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <label for="contact-name">Name</label>
+                            <input type="text" id="contact-name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-email">Email</label>
+                            <input type="email" id="contact-email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-message">Message</label>
+                            <textarea id="contact-message" class="form-control" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="py-4 text-center text-gray-600 dark:text-gray-400">
+        <p>© 2024 Marcelo Paes Barreto. All rights reserved.</p>
+    </footer>
+       
+    <!-- Google Translate Integration -->
+ <script type="text/javascript">
+    function loadGoogleTranslate() {
+        var script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+        document.body.appendChild(script);
+    }
+
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            includedLanguages: 'en,pt,fr,de,pl,es', // English, Portuguese, French, German, Polish, Spanish
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+            autoDisplay: false
+        }, 'google_translate_element');
+        
+        // Add click handlers after translate element is initialized
+        setupFlagClickHandlers();
+    }
+
+    function setupFlagClickHandlers() {
+        // Map language codes to Google Translate language names
+        const langMap = {
+            'en': 'English',
+            'pt': 'Portuguese',
+            'fr': 'French', 
+            'de': 'German',
+            'pl': 'Polish',
+            'es': 'Spanish'
+        };
+        
+        // Add click event to each flag
+        document.querySelectorAll('.language-flag').forEach(flag => {
+            flag.addEventListener('click', function(e) {
+                e.preventDefault();
+                const lang = this.getAttribute('data-lang');
+                translateTo(lang, langMap);
+            });
+        });
+    }
+    
+    function translateTo(lang, langMap) {
+        // Try multiple ways to trigger Google Translate
+        
+        // Method 1: Using Google Translate combo box
+        const googleCombo = document.querySelector('.goog-te-combo');
+        if (googleCombo) {
+            // Find and select the right language
+            for (let i = 0; i < googleCombo.options.length; i++) {
+                if (googleCombo.options[i].text.includes(langMap[lang])) {
+                    googleCombo.selectedIndex = i;
+                    googleCombo.dispatchEvent(new Event('change'));
+                    return;
+                }
+            }
+        }
+        
+        // Method 2: Using cookie approach
+        document.cookie = `googtrans=/en/${lang}`;
+        location.reload();
+    }
+
+    // Load the Google Translate script
+    window.addEventListener('DOMContentLoaded', loadGoogleTranslate);
+    
+    // Set up flag handlers even before Google Translate loads
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('.language-flag').forEach(flag => {
+            flag.addEventListener('click', function(e) {
+                e.preventDefault();
+                const lang = this.getAttribute('data-lang');
+                // If Google Translate isn't loaded yet, try cookie approach
+                document.cookie = `googtrans=/en/${lang}`;
+                location.reload();
+            });
+        });
+    });
+
+ <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<script>
+    // Google Translate Element Init Function
     function googleTranslateElementInit() {
         new google.translate.TranslateElement({
             pageLanguage: 'en',
@@ -40,33 +1204,132 @@
             });
         }, 1000);
     }
+
+    // Dark mode toggle functionality (fixed version)
+    document.addEventListener('DOMContentLoaded', function() {
+        const toggleBtn = document.getElementById('toggle');
+        
+        // Function to enable dark mode
+        function enableDarkMode() {
+            document.body.classList.add('dark-mode');
+            toggleBtn.classList.add('dark');
+            localStorage.setItem('darkMode', 'enabled');
+        }
+        
+        // Function to disable dark mode
+        function disableDarkMode() {
+            document.body.classList.remove('dark-mode');
+            toggleBtn.classList.remove('dark');
+            localStorage.setItem('darkMode', null);
+        }
+        
+        // Check if dark mode is enabled
+        const darkMode = localStorage.getItem('darkMode');
+        if (darkMode === 'enabled') {
+            enableDarkMode();
+        }
+        
+        // Add click event to toggle
+        toggleBtn.addEventListener('click', function() {
+            if (document.body.classList.contains('dark-mode')) {
+                disableDarkMode();
+            } else {
+                enableDarkMode();
+            }
+        });
+    });
+    
+    // Animate progress bars on scroll
+    document.addEventListener('DOMContentLoaded', function() {
+        const progressBars = document.querySelectorAll('.progress');
+        
+        const animateProgressBars = () => {
+            progressBars.forEach(bar => {
+                const position = bar.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (position < screenPosition) {
+                    const width = bar.parentElement.nextElementSibling.textContent;
+                    bar.style.width = width;
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', animateProgressBars);
+        animateProgressBars(); // Initial check
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+
+<!-- Google Translate Integration -->
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            includedLanguages: 'en,pt,fr,de,pl,es', // English, Portuguese, French, German, Polish, Spanish
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+            autoDisplay: false
+        }, 'google_translate_element');
+        
+        // Connect flag buttons to Google Translate
+        setTimeout(function() {
+            const langMap = {
+                'en': 'English',
+                'pt': 'Portuguese',
+                'fr': 'French', 
+                'de': 'German',
+                'pl': 'Polish',
+                'es': 'Spanish'
+            };
+            
+            document.querySelectorAll('.language-flag').forEach(flag => {
+                flag.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const lang = this.getAttribute('data-lang');
+                    const googleCombo = document.querySelector('.goog-te-combo');
+                    if (googleCombo) {
+                        // Find the option with text content matching our language
+                        for (let i = 0; i < googleCombo.options.length; i++) {
+                            if (googleCombo.options[i].text.includes(langMap[lang])) {
+                                googleCombo.selectedIndex = i;
+                                googleCombo.dispatchEvent(new Event('change'));
+                                break;
+                            }
+                        }
+                    }
+                });
+            });
+        }, 1000);
+    }
 </script>
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 <script>
-    // Dark mode toggle functionality
+    // Dark mode toggle functionality (fixed version)
     document.addEventListener('DOMContentLoaded', function() {
         console.log("DOM loaded - Setting up dark mode");
         const toggleBtn = document.getElementById('toggle');
         
         if (toggleBtn) {
+            // Function to enable dark mode
             function enableDarkMode() {
                 document.body.classList.add('dark-mode');
                 toggleBtn.classList.add('dark');
                 localStorage.setItem('darkMode', 'enabled');
             }
             
+            // Function to disable dark mode
             function disableDarkMode() {
                 document.body.classList.remove('dark-mode');
                 toggleBtn.classList.remove('dark');
                 localStorage.setItem('darkMode', null);
             }
             
+            // Check if dark mode is enabled
             const darkMode = localStorage.getItem('darkMode');
             if (darkMode === 'enabled') {
                 enableDarkMode();
             }
             
+            // Add click event to toggle
             toggleBtn.addEventListener('click', function() {
                 console.log("Toggle clicked");
                 if (document.body.classList.contains('dark-mode')) {
@@ -93,49 +1356,174 @@
         };
         
         window.addEventListener('scroll', animateProgressBars);
-        animateProgressBars();
+        animateProgressBars(); // Initial check
         
-        // Handle reference form submission
-        const submitBtn = document.getElementById('ref_submit_button');
-        if (submitBtn) {
-            submitBtn.addEventListener('click', function() {
-                handleReferenceSubmission();
+        // Reference system
+        console.log("Setting up reference system");
+        
+        // Simple reference form handling
+        const referenceForm = document.getElementById('reference-form');
+        console.log("Reference form found:", referenceForm);
+        
+        if (referenceForm) {
+            referenceForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                console.log("Reference form submitted");
+                
+                // Get form values
+                const name = document.getElementById('ref-name').value;
+                const company = document.getElementById('ref-company').value;
+                const position = document.getElementById('ref-position').value;
+                const code = document.getElementById('ref-code').value;
+                const text = document.getElementById('ref-text').value;
+                
+                console.log("Form data:", { name, company, position, code: "***" });
+                
+                // Check reference code
+                if (code !== 'Marcelo1984') {
+                    console.log("Invalid code");
+                    // Show error message
+                    const messageElement = document.getElementById('submission-message');
+                    messageElement.textContent = 'Invalid reference code. Please check and try again.';
+                    messageElement.className = 'mt-3 p-3 rounded bg-red-100 text-red-700';
+                    messageElement.classList.remove('hidden');
+                    
+                    // Hide after 5 seconds
+                    setTimeout(() => {
+                        messageElement.classList.add('hidden');
+                    }, 5000);
+                } else {
+                    console.log("Valid code, creating issue");
+                    // Show success message
+                    const messageElement = document.getElementById('submission-message');
+                    messageElement.textContent = 'Thank you! Your reference has been submitted for approval.';
+                    messageElement.className = 'mt-3 p-3 rounded bg-green-100 text-green-700';
+                    messageElement.classList.remove('hidden');
+                    
+                    // Create GitHub issue
+                    const issueTitle = `New Reference from ${name} (${company})`;
+                    const issueBody = `
+## New Reference Submission
+
+**Name:** ${name}
+**Position:** ${position}
+**Company:** ${company}
+**Text:** "${text}"
+
+---
+*Submitted on: ${new Date().toISOString()}*
+                    `;
+                    
+                    // GitHub issues URL
+                    const issuesUrl = 'https://github.com/MarceloPaesBarreto/my-cv/issues/new';
+                    const url = `${issuesUrl}?title=${encodeURIComponent(issueTitle)}&body=${encodeURIComponent(issueBody)}&labels=reference`;
+                    
+                    // Reset form
+                    referenceForm.reset();
+                    
+                    // Open GitHub issue page in new tab
+                    window.open(url, '_blank');
+                    
+                    // Hide after 5 seconds
+                    setTimeout(() => {
+                        messageElement.classList.add('hidden');
+                    }, 5000);
+                }
             });
+        } else {
+            console.error("Reference form not found");
         }
         
-        // Handle contact form
-        const contactForms = document.querySelectorAll('.contact-form');
-        contactForms.forEach(form => {
+        // Handle other forms (contact form, etc.)
+        const otherForms = document.querySelectorAll('form:not(#reference-form)');
+        otherForms.forEach(form => {
             form.addEventListener('submit', (e) => {
                 e.preventDefault();
                 alert('This is a demonstration. In a real implementation, this form would submit data.');
                 form.reset();
             });
         });
+        
+        // Try to load references if JSON file exists
+        try {
+            fetch('approved-references.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('References file not found');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log("References loaded:", data);
+                    const container = document.getElementById('references-container');
+                    if (container && data.references && data.references.length > 0) {
+                        // Remove loading message if it exists
+                        const loadingMessage = document.getElementById('loading-references');
+                        if (loadingMessage) loadingMessage.remove();
+                        
+                        // Display references
+                        data.references.forEach(ref => {
+                            if (ref.approved) {
+                                const referenceElement = document.createElement('div');
+                                referenceElement.className = 'p-4 bg-gray-50 dark:bg-gray-900 rounded-lg';
+                                referenceElement.innerHTML = `
+                                    <p class="italic">"${ref.text}"</p>
+                                    <p class="font-bold mt-2">- ${ref.author}</p>
+                                    <p>${ref.position}, ${ref.company}</p>
+                                `;
+                                container.appendChild(referenceElement);
+                            }
+                        });
+                    }
+                })
+                .catch(error => {
+                    console.log("Error loading references:", error.message);
+                });
+        } catch (error) {
+            console.log("Could not fetch references:", error);
+        }
     });
+<script>
+function handleReferenceSubmit(event) {
+    event.preventDefault();
     
-    // Reference form handling
-    function handleReferenceSubmission() {
-        // Get form values
-        const name = document.getElementById('ref_name_field').value;
-        const company = document.getElementById('ref_company_field').value;
-        const position = document.getElementById('ref_position_field').value;
-        const code = document.getElementById('ref_code_field').value;
-        const text = document.getElementById('ref_text_field').value;
+    // Get form values
+    const name = document.getElementById('ref-name').value;
+    const company = document.getElementById('ref-company').value;
+    const position = document.getElementById('ref-position').value;
+    const code = document.getElementById('ref-code').value;
+    const text = document.getElementById('ref-text').value;
+    
+    // Show what we're doing
+    console.log('Reference form submitted');
+    console.log('Name:', name);
+    console.log('Company:', company);
+    console.log('Position:', position);
+    console.log('Code provided:', code);
+    
+    // Check reference code
+    const expectedCode = 'Marcelo1984'; // Your secret reference code
+    
+    if (code !== expectedCode) {
+        // Show error message
+        const messageElement = document.getElementById('submission-message');
+        messageElement.textContent = 'Invalid reference code. Please check and try again.';
+        messageElement.className = 'mt-3 p-3 rounded bg-red-100 text-red-700';
+        messageElement.classList.remove('hidden');
         
-        // Check if all fields are filled
-        if (!name || !company || !position || !code || !text) {
-            showReferenceMessage('Please fill out all fields', 'error');
-            return;
-        }
+        // Hide after 5 seconds
+        setTimeout(() => {
+            messageElement.classList.add('hidden');
+        }, 5000);
         
-        console.log('Reference submission:', { name, company, position });
-        
-        // Check reference code
-        if (code !== 'Marcelo1984') {
-            showReferenceMessage('Invalid reference code. Please check and try again.', 'error');
-            return;
-        }
+        console.log('Invalid reference code!');
+        return false;
+    } else {
+        // Show success message
+        const messageElement = document.getElementById('submission-message');
+        messageElement.textContent = 'Thank you! Your reference has been submitted for approval.';
+        messageElement.className = 'mt-3 p-3 rounded bg-green-100 text-green-700';
+        messageElement.classList.remove('hidden');
         
         // Create GitHub issue
         const issueTitle = `New Reference from ${name} (${company})`;
@@ -155,37 +1543,23 @@
         const issuesUrl = 'https://github.com/MarceloPaesBarreto/my-cv/issues/new';
         const url = `${issuesUrl}?title=${encodeURIComponent(issueTitle)}&body=${encodeURIComponent(issueBody)}&labels=reference`;
         
-        // Show success message
-        showReferenceMessage('Thank you! Your reference has been submitted for approval.', 'success');
-        
-        // Clear form fields
-        document.getElementById('ref_name_field').value = '';
-        document.getElementById('ref_company_field').value = '';
-        document.getElementById('ref_position_field').value = '';
-        document.getElementById('ref_code_field').value = '';
-        document.getElementById('ref_text_field').value = '';
+        // Reset form
+        document.getElementById('reference-form').reset();
         
         // Open GitHub issue page in new tab
         window.open(url, '_blank');
-    }
-    
-    function showReferenceMessage(message, type) {
-        const messageElement = document.getElementById('ref_message');
-        if (!messageElement) return;
         
-        messageElement.textContent = message;
-        
-        if (type === 'error') {
-            messageElement.className = 'mt-3 p-3 rounded bg-red-100 text-red-700';
-        } else {
-            messageElement.className = 'mt-3 p-3 rounded bg-green-100 text-green-700';
-        }
-        
-        messageElement.classList.remove('hidden');
-        
-        // Hide the message after 5 seconds
-        setTimeout(function() {
+        // Hide after 5 seconds
+        setTimeout(() => {
             messageElement.classList.add('hidden');
         }, 5000);
+        
+        console.log('Valid reference code, submitted!');
+        return false;
     }
+}
 </script>
+</body>
+</html>
+
+
