@@ -997,7 +997,7 @@
     <p class="mb-4">Professional references from colleagues and supervisors are displayed below. If you've been asked to provide a reference, please fill out the form.</p>
     
     <div class="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg mb-4">
-        <form class="reference-form" id="reference-form">
+        <form id="reference-form" onsubmit="return handleReferenceSubmit(event)">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div class="form-group">
                     <label for="ref-name">Name</label>
@@ -1027,10 +1027,14 @@
     </div>
     
     <div id="references-container" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <!-- References will be loaded here by JavaScript -->
-        <p id="loading-references">Loading references...</p>
+        <div class="p-4 bg-gray-50 dark:bg-gray-900 rounded-lg">
+            <p class="italic">"Marcelo is an exceptional professional with outstanding technical skills and a collaborative approach."</p>
+            <p class="font-bold mt-2">- John Smith</p>
+            <p>Senior Manager, Example Corporation</p>
+        </div>
     </div>
 </div>
+
         
         <div class="card" id="contact">
             <h2>Contact Me</h2>
@@ -1479,9 +1483,83 @@
             console.log("Could not fetch references:", error);
         }
     });
-</script>
+<script>
+function handleReferenceSubmit(event) {
+    event.preventDefault();
+    
+    // Get form values
+    const name = document.getElementById('ref-name').value;
+    const company = document.getElementById('ref-company').value;
+    const position = document.getElementById('ref-position').value;
+    const code = document.getElementById('ref-code').value;
+    const text = document.getElementById('ref-text').value;
+    
+    // Show what we're doing
+    console.log('Reference form submitted');
+    console.log('Name:', name);
+    console.log('Company:', company);
+    console.log('Position:', position);
+    console.log('Code provided:', code);
+    
+    // Check reference code
+    const expectedCode = 'Marcelo1984'; // Your secret reference code
+    
+    if (code !== expectedCode) {
+        // Show error message
+        const messageElement = document.getElementById('submission-message');
+        messageElement.textContent = 'Invalid reference code. Please check and try again.';
+        messageElement.className = 'mt-3 p-3 rounded bg-red-100 text-red-700';
+        messageElement.classList.remove('hidden');
+        
+        // Hide after 5 seconds
+        setTimeout(() => {
+            messageElement.classList.add('hidden');
+        }, 5000);
+        
+        console.log('Invalid reference code!');
+        return false;
+    } else {
+        // Show success message
+        const messageElement = document.getElementById('submission-message');
+        messageElement.textContent = 'Thank you! Your reference has been submitted for approval.';
+        messageElement.className = 'mt-3 p-3 rounded bg-green-100 text-green-700';
+        messageElement.classList.remove('hidden');
+        
+        // Create GitHub issue
+        const issueTitle = `New Reference from ${name} (${company})`;
+        const issueBody = `
+## New Reference Submission
 
+**Name:** ${name}
+**Position:** ${position}
+**Company:** ${company}
+**Text:** "${text}"
+
+---
+*Submitted on: ${new Date().toISOString()}*
+        `;
+        
+        // GitHub issues URL
+        const issuesUrl = 'https://github.com/MarceloPaesBarreto/my-cv/issues/new';
+        const url = `${issuesUrl}?title=${encodeURIComponent(issueTitle)}&body=${encodeURIComponent(issueBody)}&labels=reference`;
+        
+        // Reset form
+        document.getElementById('reference-form').reset();
+        
+        // Open GitHub issue page in new tab
+        window.open(url, '_blank');
+        
+        // Hide after 5 seconds
+        setTimeout(() => {
+            messageElement.classList.add('hidden');
+        }, 5000);
+        
+        console.log('Valid reference code, submitted!');
+        return false;
+    }
+}
 </script>
 </body>
 </html>
+
 
