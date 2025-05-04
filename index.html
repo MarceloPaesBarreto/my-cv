@@ -1048,73 +1048,106 @@
             });
         });
     });
-</script>
-    
-    // Dark mode toggle functionality
-    document.addEventListener('DOMContentLoaded', function() {
-    const toggle = document.getElementById('toggle');
-    const body = document.body;
-    
-    if (!toggle) {
-        console.error("Toggle element not found!");
-        return;
-    }
-    
-    // Check if user preference is stored
-    const darkMode = localStorage.getItem('darkMode');
-    if (darkMode === 'enabled') {
-        enableDarkMode();
-    }
-    
-    // Add click event
-    toggle.addEventListener('click', function() {
-        console.log("Toggle clicked!");
-        if (body.classList.contains('dark-mode')) {
-            disableDarkMode();
-        } else {
-            enableDarkMode();
-        }
-    });
-    
-    function enableDarkMode() {
-        console.log("Enabling dark mode");
-        body.classList.add('dark-mode');
-        toggle.classList.add('dark');
-        localStorage.setItem('darkMode', 'enabled');
-    }
-    
-    function disableDarkMode() {
-        console.log("Disabling dark mode");
-        body.classList.remove('dark-mode');
-        toggle.classList.remove('dark');
-        localStorage.setItem('darkMode', null);
-    }
-    
-    // Log initial state for debugging
-    console.log("Dark mode script loaded. Current state:", body.classList.contains('dark-mode') ? "dark" : "light");
-});
+
+ <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<script>
+    // Google Translate Element Init Function
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            includedLanguages: 'en,pt,fr,de,pl,es',
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+            autoDisplay: false
+        }, 'google_translate_element');
         
-        // Animate progress bars on scroll
-        document.addEventListener('DOMContentLoaded', function() {
-            const progressBars = document.querySelectorAll('.progress');
-            
-            const animateProgressBars = () => {
-                progressBars.forEach(bar => {
-                    const position = bar.getBoundingClientRect().top;
-                    const screenPosition = window.innerHeight / 1.3;
-                    
-                    if (position < screenPosition) {
-                        const width = bar.parentElement.nextElementSibling.textContent;
-                        bar.style.width = width;
-                    }
-                });
+        // Connect flag buttons to Google Translate
+        setTimeout(function() {
+            const langMap = {
+                'en': 'English',
+                'pt': 'Portuguese',
+                'fr': 'French', 
+                'de': 'German',
+                'pl': 'Polish',
+                'es': 'Spanish'
             };
             
-            window.addEventListener('scroll', animateProgressBars);
-            animateProgressBars(); // Initial check
-        });
+            document.querySelectorAll('.language-flag').forEach(flag => {
+                flag.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const lang = this.getAttribute('data-lang');
+                    const googleCombo = document.querySelector('.goog-te-combo');
+                    if (googleCombo) {
+                        // Find the option with text content matching our language
+                        for (let i = 0; i < googleCombo.options.length; i++) {
+                            if (googleCombo.options[i].text.includes(langMap[lang])) {
+                                googleCombo.selectedIndex = i;
+                                googleCombo.dispatchEvent(new Event('change'));
+                                break;
+                            }
+                        }
+                    }
+                });
+            });
+        }, 1000);
+    }
+
+    // Dark mode toggle functionality (fixed version)
+    document.addEventListener('DOMContentLoaded', function() {
+        const toggleBtn = document.getElementById('toggle');
         
-        // Form submission (for demonstration)
+        // Function to enable dark mode
+        function enableDarkMode() {
+            document.body.classList.add('dark-mode');
+            toggleBtn.classList.add('dark');
+            localStorage.setItem('darkMode', 'enabled');
+        }
+        
+        // Function to disable dark mode
+        function disableDarkMode() {
+            document.body.classList.remove('dark-mode');
+            toggleBtn.classList.remove('dark');
+            localStorage.setItem('darkMode', null);
+        }
+        
+        // Check if dark mode is enabled
+        const darkMode = localStorage.getItem('darkMode');
+        if (darkMode === 'enabled') {
+            enableDarkMode();
+        }
+        
+        // Add click event to toggle
+        toggleBtn.addEventListener('click', function() {
+            if (document.body.classList.contains('dark-mode')) {
+                disableDarkMode();
+            } else {
+                enableDarkMode();
+            }
+        });
+    });
+    
+    // Animate progress bars on scroll
+    document.addEventListener('DOMContentLoaded', function() {
+        const progressBars = document.querySelectorAll('.progress');
+        
+        const animateProgressBars = () => {
+            progressBars.forEach(bar => {
+                const position = bar.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (position < screenPosition) {
+                    const width = bar.parentElement.nextElementSibling.textContent;
+                    bar.style.width = width;
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', animateProgressBars);
+        animateProgressBars(); // Initial check
+    });
+    
+    // Form submission (for demonstration)
+    document.addEventListener('DOMContentLoaded', function() {
         const forms = document.querySelectorAll('form');
         forms.forEach(form => {
             form.addEventListener('submit', (e) => {
@@ -1123,6 +1156,8 @@
                 form.reset();
             });
         });
-    </script>
+    });
+</script>
 </body>
 </html>
+
