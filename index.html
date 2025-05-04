@@ -1267,7 +1267,7 @@
         });
     });
 <script>
-    // References handling
+// References handling system
 document.addEventListener('DOMContentLoaded', function() {
     // Load approved references
     loadApprovedReferences();
@@ -1286,6 +1286,8 @@ function loadApprovedReferences() {
     const container = document.getElementById('references-container');
     const loadingText = document.getElementById('loading-references');
     
+    if (!container) return;
+    
     // Fetch references from the JSON file
     fetch('approved-references.json')
         .then(response => response.json())
@@ -1293,6 +1295,7 @@ function loadApprovedReferences() {
             if (loadingText) loadingText.remove();
             
             if (data.references && data.references.length > 0) {
+                // Create and append reference elements
                 data.references.forEach(ref => {
                     if (ref.approved) {
                         const referenceElement = document.createElement('div');
@@ -1306,6 +1309,7 @@ function loadApprovedReferences() {
                     }
                 });
             } else {
+                // No references to display
                 const noReferences = document.createElement('p');
                 noReferences.textContent = 'No references available yet.';
                 noReferences.className = 'text-center w-full col-span-2';
@@ -1327,8 +1331,8 @@ function submitReference() {
     const code = document.getElementById('ref-code').value;
     const text = document.getElementById('ref-text').value;
     
-    // Simple validation for the reference code (you can set this to whatever you want)
-    const expectedCode = 'Marcelo2025'; // Your secret code
+    // Simple validation for the reference code (change this to your desired code)
+    const expectedCode = 'Marcelo2025'; // Your secret reference code
     
     if (code !== expectedCode) {
         showSubmissionMessage('Invalid reference code. Please check and try again.', 'error');
@@ -1349,8 +1353,10 @@ function submitReference() {
 *Submitted on: ${new Date().toISOString()}*
     `;
     
-    // GitHub issues URL to your repository
-    const issuesUrl = 'https://github.com/MarceloPaesBarreto/Portifole-Page/issues/new';
+    // GitHub issues URL to your repository (update with your actual username/repository)
+    const repoOwner = 'MarceloPaesBarreto'; // Your GitHub username
+    const repoName = 'Portifole-Page'; // Your repository name
+    const issuesUrl = `https://github.com/${repoOwner}/${repoName}/issues/new`;
     
     // Open a new window with a pre-filled GitHub issue
     const url = `${issuesUrl}?title=${encodeURIComponent(issueTitle)}&body=${encodeURIComponent(issueBody)}&labels=reference`;
@@ -1362,14 +1368,18 @@ function submitReference() {
 
 function showSubmissionMessage(message, type) {
     const messageElement = document.getElementById('submission-message');
+    if (!messageElement) return;
+    
     messageElement.textContent = message;
     messageElement.className = `mt-3 p-3 rounded ${type === 'error' ? 'bg-red-100 text-red-700' : 'bg-green-100 text-green-700'}`;
     messageElement.classList.remove('hidden');
     
+    // Hide the message after 5 seconds
     setTimeout(() => {
         messageElement.classList.add('hidden');
     }, 5000);
 }
+
 
 <script>
 
