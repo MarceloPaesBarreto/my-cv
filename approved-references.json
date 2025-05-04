@@ -1,0 +1,13 @@
+{
+  "references": [
+    {
+      "id": "example-1",
+      "text": "Marcelo is an exceptional professional with outstanding technical skills and a collaborative approach.",
+      "author": "John Smith",
+      "position": "Senior Manager",
+      "company": "Example Corporation",
+      "approved": true,
+      "date": "2025-05-01"
+    }
+  ]
+}
