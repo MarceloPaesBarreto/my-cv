@@ -218,29 +218,6 @@
             margin-right: 0.75rem;
         }
         
-        .contact-form {
-            margin-top: 1.5rem;
-        }
-        
-        .form-group {
-            margin-bottom: 1rem;
-        }
-        
-        .form-control {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid var(--border-color);
-            border-radius: 0.25rem;
-            background-color: var(--card-bg);
-            color: var(--text-color);
-            transition: border-color 0.3s ease;
-        }
-        
-        .form-control:focus {
-            outline: none;
-            border-color: var(--primary-color);
-        }
-        
         .btn {
             display: inline-block;
             padding: 0.75rem 1.5rem;
@@ -482,117 +459,32 @@
         }
 
         /* Fix form labels and backgrounds in dark mode */
-.bg-gray-100 {
-    background-color: var(--background);
-    transition: background-color 0.3s ease;
-}
+        .bg-gray-100 {
+            background-color: var(--background);
+            transition: background-color 0.3s ease;
+        }
 
-.dark-mode .bg-gray-100 {
-    background-color: var(--card-bg);
-}
+        .dark-mode .bg-gray-100 {
+            background-color: var(--card-bg);
+        }
 
-.form-group label {
-    color: var(--text-color);
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
+        /* Fix for any light-colored icons in dark mode */
+        .dark-mode .text-primary,
+        .dark-mode .fas,
+        .dark-mode .fab {
+            color: var(--secondary-color);
+        }
 
-.dark-mode .form-group label {
-    color: var(--text-light);
-}
-
-.dark-mode .form-control {
-    background-color: #2d3748;
-    color: #f7fafc;
-    border-color: #4a5568;
-}
-
-.dark-mode .form-control:focus {
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
-}
-
-/* Fix for placeholder text in dark mode */
-.dark-mode .form-control::placeholder {
-    color: #a0aec0;
-}
-
-/* Ensure the background colors for references are visible */
-.dark-mode .bg-gray-50 {
-    background-color: #2d3748 !important;
-}
-
-.dark-mode .bg-gray-800 {
-    background-color: #1a202c !important;
-}
-
-.dark-mode .bg-gray-900 {
-    background-color: #171923 !important;
-}
-
-/* Fix for reference boxes */
-.dark-mode .p-4.bg-gray-50 {
-    background-color: #2d3748 !important;
-    border: 1px solid #4a5568;
-}
-
-/* Ensure contact form elements are visible */
-.dark-mode .card#contact label {
-    color: var(--text-light);
-}
-
-/* Ensure toggle works well at smaller screen sizes */
-@media (max-width: 768px) {
-    .toggle-container {
-        margin: 1rem auto;
-    }
-}
-
-/* Add a hover effect to the toggle for better usability */
-.toggle:hover {
-    box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
-}
-
-/* Fix for any light-colored icons in dark mode */
-.dark-mode .text-primary,
-.dark-mode .fas,
-.dark-mode .fab {
-    color: var(--secondary-color);
-}
-
-/* Make interest cards look better in dark mode */
-.dark-mode .border-gray-300 {
-    border-color: var(--border-color);
-    background-color: var(--card-bg);
-}
-
-/* Fix any text that might be hard to read in forms */
-.dark-mode input::placeholder,
-.dark-mode textarea::placeholder {
-    color: #a0aec0;
-}
-
-/* Reference submission messages */
-.bg-red-100 {
-    background-color: #fee2e2;
-}
-.text-red-700 {
-    color: #b91c1c;
-}
-.bg-green-100 {
-    background-color: #dcfce7;
-}
-.text-green-700 {
-    color: #15803d;
-}
-      
+        /* Make interest cards look better in dark mode */
+        .dark-mode .border-gray-300 {
+            border-color: var(--border-color);
+            background-color: var(--card-bg);
+        }
     </style>
 </head>
 <body>
     <!-- Google Translate Element (hidden) -->
-   <div id="google_translate_element" style="position: absolute; top: -1000px; left: -1000px;"></div>
+    <div id="google_translate_element" style="position: absolute; top: -1000px; left: -1000px;"></div>
     
     <header>
         <div class="translation-bar">
@@ -604,28 +496,28 @@
             <a href="#" class="language-flag" data-lang="de" title="German"><img src="https://cdn.jsdelivr.net/npm/flag-icon-css@3.5.0/flags/4x3/de.svg" alt="German"></a>
         </div>
         
-      <div class="header-content">
-    <div class="profile-photo">
-        <img src="photo.jpg" alt="Profile Photo">
-    </div>
-    <div>
-        <h1 class="text-3xl font-bold">Marcelo Paes Barreto</h1>
-        <p class="text-xl">Azure Cloud & Infrastructure Specialist</p>
-        <div class="mt-2">
-            <a href="mailto:mopb3@hotmail.com" class="text-white hover:text-gray-200">
-                <i class="fas fa-envelope mr-2"></i>mopb3@hotmail.com
-            </a>
-            <span class="mx-2">|</span>
-            <a href="tel:+48516411137" class="text-white hover:text-gray-200">
-                <i class="fas fa-phone mr-2"></i>+48 516 411 137
-            </a>
-            <span class="mx-2">|</span>
-            <a href="#" class="text-white hover:text-gray-200">
-                <i class="fab fa-linkedin mr-2"></i>LinkedIn Profile
-            </a>
+        <div class="header-content">
+            <div class="profile-photo">
+                <img src="photo.jpg" alt="Profile Photo">
+            </div>
+            <div>
+                <h1 class="text-3xl font-bold">Marcelo Paes Barreto</h1>
+                <p class="text-xl">Azure Cloud & Infrastructure Specialist</p>
+                <div class="mt-2">
+                    <a href="mailto:mopb3@hotmail.com" class="text-white hover:text-gray-200">
+                        <i class="fas fa-envelope mr-2"></i>mopb3@hotmail.com
+                    </a>
+                    <span class="mx-2">|</span>
+                    <a href="tel:+48516411137" class="text-white hover:text-gray-200">
+                        <i class="fas fa-phone mr-2"></i>+48 516 411 137
+                    </a>
+                    <span class="mx-2">|</span>
+                    <a href="#" class="text-white hover:text-gray-200">
+                        <i class="fab fa-linkedin mr-2"></i>LinkedIn Profile
+                    </a>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
         
         <div class="toggle-container" id="darkModeToggle">
             <div class="toggle" id="toggle">
@@ -927,8 +819,8 @@
                     <div class="certification">
                         <h3>Azure Administration: Implement and Manage Storage</h3>
                         <p>LinkedIn Learning</p>
-                    </div>
-                    
+                    </div
+
                     <div class="certification">
                         <h3>Azure Identity Services</h3>
                         <p>LinkedIn Learning</p>
@@ -992,574 +884,132 @@
                 </div>
             </div>
         </div>
-        
-        <div class="card" id="reference-system">
-    <h2>References</h2>
-    <p class="mb-4">Professional references from colleagues and supervisors are displayed below. If you've been asked to provide a reference, please fill out the form.</p>
-    
-    <div class="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg mb-4">
-        <div id="ref-form-container">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="form-group">
-                    <label for="ref_name_field">Name</label>
-                    <input type="text" id="ref_name_field" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label for="ref_company_field">Company</label>
-                    <input type="text" id="ref_company_field" class="form-control" required>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="ref_position_field">Position</label>
-                <input type="text" id="ref_position_field" class="form-control" required>
-            </div>
-            <div class="form-group">
-                <label for="ref_code_field">Reference Code</label>
-                <input type="text" id="ref_code_field" class="form-control" required>
-                <small class="text-gray-500 dark:text-gray-400">Please enter the reference code provided to you</small>
-            </div>
-            <div class="form-group">
-                <label for="ref_text_field">Reference</label>
-                <textarea id="ref_text_field" class="form-control" rows="4" required></textarea>
-            </div>
-            <button type="button" id="ref_submit_button" class="btn">Submit Reference</button>
-            <div id="ref_message" class="mt-3 p-3 rounded hidden"></div>
-        </div>
-    </div>
-    
-    <div id="references-display" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div class="p-4 bg-gray-50 dark:bg-gray-900 rounded-lg">
-            <p class="italic">"Marcelo is an exceptional professional with outstanding technical skills and a collaborative approach."</p>
-            <p class="font-bold mt-2">- John Smith</p>
-            <p>Senior Manager, Example Corporation</p>
-        </div>
-    </div>
-</div>
-        
-        <div class="card" id="contact">
-            <h2>Contact Me</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div>
-                    <div class="contact-info">
-                        <i class="fas fa-envelope"></i>
-                        <a href="mailto:mopb3@hotmail.com">mopb3@hotmail.com</a>
-                    </div>
-                    <div class="contact-info">
-                        <i class="fas fa-phone"></i>
-                        <a href="tel:+48516411137">+48 516 411 137</a>
-                    </div>
-                    <div class="contact-info">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Kraków, Poland</span>
-                    </div>
-                    <div class="contact-info">
-                        <i class="fab fa-linkedin"></i>
-                        <a href="#">LinkedIn Profile</a>
-                    </div>
-                </div>
-                
-                <div>
-                    <form class="contact-form">
-                        <div class="form-group">
-                            <label for="contact-name">Name</label>
-                            <input type="text" id="contact-name" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="contact-email">Email</label>
-                            <input type="email" id="contact-email" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="contact-message">Message</label>
-                            <textarea id="contact-message" class="form-control" rows="4" required></textarea>
-                        </div>
-                        <button type="submit" class="btn">Send Message</button>
-                    </form>
-                </div>
-            </div>
-        </div>
     </div>
     
     <footer class="py-4 text-center text-gray-600 dark:text-gray-400">
-        <p>© 2024 Marcelo Paes Barreto. All rights reserved.</p>
+        <p>© 2025 Marcelo Paes Barreto. All rights reserved.</p>
     </footer>
-       
-    <!-- Google Translate Integration -->
- <script type="text/javascript">
-    function loadGoogleTranslate() {
-        var script = document.createElement('script');
-        script.type = 'text/javascript';
-        script.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
-        document.body.appendChild(script);
-    }
-
-    function googleTranslateElementInit() {
-        new google.translate.TranslateElement({
-            pageLanguage: 'en',
-            includedLanguages: 'en,pt,fr,de,pl,es', // English, Portuguese, French, German, Polish, Spanish
-            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-            autoDisplay: false
-        }, 'google_translate_element');
-        
-        // Add click handlers after translate element is initialized
-        setupFlagClickHandlers();
-    }
-
-    function setupFlagClickHandlers() {
-        // Map language codes to Google Translate language names
-        const langMap = {
-            'en': 'English',
-            'pt': 'Portuguese',
-            'fr': 'French', 
-            'de': 'German',
-            'pl': 'Polish',
-            'es': 'Spanish'
-        };
-        
-        // Add click event to each flag
-        document.querySelectorAll('.language-flag').forEach(flag => {
-            flag.addEventListener('click', function(e) {
-                e.preventDefault();
-                const lang = this.getAttribute('data-lang');
-                translateTo(lang, langMap);
-            });
-        });
-    }
     
-    function translateTo(lang, langMap) {
-        // Try multiple ways to trigger Google Translate
-        
-        // Method 1: Using Google Translate combo box
-        const googleCombo = document.querySelector('.goog-te-combo');
-        if (googleCombo) {
-            // Find and select the right language
-            for (let i = 0; i < googleCombo.options.length; i++) {
-                if (googleCombo.options[i].text.includes(langMap[lang])) {
-                    googleCombo.selectedIndex = i;
-                    googleCombo.dispatchEvent(new Event('change'));
-                    return;
-                }
-            }
-        }
-        
-        // Method 2: Using cookie approach
-        document.cookie = `googtrans=/en/${lang}`;
-        location.reload();
-    }
-
-    // Load the Google Translate script
-    window.addEventListener('DOMContentLoaded', loadGoogleTranslate);
-    
-    // Set up flag handlers even before Google Translate loads
-    document.addEventListener('DOMContentLoaded', function() {
-        document.querySelectorAll('.language-flag').forEach(flag => {
-            flag.addEventListener('click', function(e) {
-                e.preventDefault();
-                const lang = this.getAttribute('data-lang');
-                // If Google Translate isn't loaded yet, try cookie approach
-                document.cookie = `googtrans=/en/${lang}`;
-                location.reload();
-            });
-        });
-    });
-
- <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
-<script>
-    // Google Translate Element Init Function
-    function googleTranslateElementInit() {
-        new google.translate.TranslateElement({
-            pageLanguage: 'en',
-            includedLanguages: 'en,pt,fr,de,pl,es',
-            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-            autoDisplay: false
-        }, 'google_translate_element');
-        
-        // Connect flag buttons to Google Translate
-        setTimeout(function() {
-            const langMap = {
-                'en': 'English',
-                'pt': 'Portuguese',
-                'fr': 'French', 
-                'de': 'German',
-                'pl': 'Polish',
-                'es': 'Spanish'
-            };
+    <!-- Clean, simplified script section -->
+    <script>
+        // Google Translate Integration
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'en,pt,fr,de,pl,es', // English, Portuguese, French, German, Polish, Spanish
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                autoDisplay: false
+            }, 'google_translate_element');
             
-            document.querySelectorAll('.language-flag').forEach(flag => {
-                flag.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const lang = this.getAttribute('data-lang');
-                    const googleCombo = document.querySelector('.goog-te-combo');
-                    if (googleCombo) {
-                        // Find the option with text content matching our language
-                        for (let i = 0; i < googleCombo.options.length; i++) {
-                            if (googleCombo.options[i].text.includes(langMap[lang])) {
-                                googleCombo.selectedIndex = i;
-                                googleCombo.dispatchEvent(new Event('change'));
-                                break;
-                            }
-                        }
-                    }
-                });
-            });
-        }, 1000);
-    }
-
-    // Dark mode toggle functionality (fixed version)
-    document.addEventListener('DOMContentLoaded', function() {
-        const toggleBtn = document.getElementById('toggle');
-        
-        // Function to enable dark mode
-        function enableDarkMode() {
-            document.body.classList.add('dark-mode');
-            toggleBtn.classList.add('dark');
-            localStorage.setItem('darkMode', 'enabled');
-        }
-        
-        // Function to disable dark mode
-        function disableDarkMode() {
-            document.body.classList.remove('dark-mode');
-            toggleBtn.classList.remove('dark');
-            localStorage.setItem('darkMode', null);
-        }
-        
-        // Check if dark mode is enabled
-        const darkMode = localStorage.getItem('darkMode');
-        if (darkMode === 'enabled') {
-            enableDarkMode();
-        }
-        
-        // Add click event to toggle
-        toggleBtn.addEventListener('click', function() {
-            if (document.body.classList.contains('dark-mode')) {
-                disableDarkMode();
-            } else {
-                enableDarkMode();
-            }
-        });
-    });
-    
-    // Animate progress bars on scroll
-    document.addEventListener('DOMContentLoaded', function() {
-        const progressBars = document.querySelectorAll('.progress');
-        
-        const animateProgressBars = () => {
-            progressBars.forEach(bar => {
-                const position = bar.getBoundingClientRect().top;
-                const screenPosition = window.innerHeight / 1.3;
+            // Add click handlers after translate element is initialized
+            setTimeout(function() {
+                const langMap = {
+                    'en': 'English',
+                    'pt': 'Portuguese',
+                    'fr': 'French', 
+                    'de': 'German',
+                    'pl': 'Polish',
+                    'es': 'Spanish'
+                };
                 
-                if (position < screenPosition) {
-                    const width = bar.parentElement.nextElementSibling.textContent;
-                    bar.style.width = width;
-                }
-            });
-        };
-        
-        window.addEventListener('scroll', animateProgressBars);
-        animateProgressBars(); // Initial check
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-
-<!-- Google Translate Integration -->
-<script type="text/javascript">
-    function googleTranslateElementInit() {
-        new google.translate.TranslateElement({
-            pageLanguage: 'en',
-            includedLanguages: 'en,pt,fr,de,pl,es', // English, Portuguese, French, German, Polish, Spanish
-            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-            autoDisplay: false
-        }, 'google_translate_element');
-        
-        // Connect flag buttons to Google Translate
-        setTimeout(function() {
-            const langMap = {
-                'en': 'English',
-                'pt': 'Portuguese',
-                'fr': 'French', 
-                'de': 'German',
-                'pl': 'Polish',
-                'es': 'Spanish'
-            };
-            
-            document.querySelectorAll('.language-flag').forEach(flag => {
-                flag.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const lang = this.getAttribute('data-lang');
-                    const googleCombo = document.querySelector('.goog-te-combo');
-                    if (googleCombo) {
-                        // Find the option with text content matching our language
-                        for (let i = 0; i < googleCombo.options.length; i++) {
-                            if (googleCombo.options[i].text.includes(langMap[lang])) {
-                                googleCombo.selectedIndex = i;
-                                googleCombo.dispatchEvent(new Event('change'));
-                                break;
+                document.querySelectorAll('.language-flag').forEach(flag => {
+                    flag.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const lang = this.getAttribute('data-lang');
+                        const googleCombo = document.querySelector('.goog-te-combo');
+                        if (googleCombo) {
+                            // Find the option with text content matching our language
+                            for (let i = 0; i < googleCombo.options.length; i++) {
+                                if (googleCombo.options[i].text.includes(langMap[lang])) {
+                                    googleCombo.selectedIndex = i;
+                                    googleCombo.dispatchEvent(new Event('change'));
+                                    break;
+                                }
                             }
+                        } else {
+                            // Use cookie method as fallback
+                            document.cookie = `googtrans=/en/${lang}`;
+                            location.reload();
                         }
-                    }
+                    });
                 });
-            });
-        }, 1000);
-    }
-</script>
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+            }, 1000);
+        }
 
-<script>
-    // Dark mode toggle functionality (fixed version)
-    document.addEventListener('DOMContentLoaded', function() {
-        console.log("DOM loaded - Setting up dark mode");
-        const toggleBtn = document.getElementById('toggle');
+        // Load Google Translate
+        function loadGoogleTranslate() {
+            var script = document.createElement('script');
+            script.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+            document.body.appendChild(script);
+        }
         
-        if (toggleBtn) {
-            // Function to enable dark mode
-            function enableDarkMode() {
-                document.body.classList.add('dark-mode');
-                toggleBtn.classList.add('dark');
-                localStorage.setItem('darkMode', 'enabled');
-            }
+        // Dark mode toggle functionality
+        function setupDarkMode() {
+            const toggleBtn = document.getElementById('toggle');
             
-            // Function to disable dark mode
-            function disableDarkMode() {
-                document.body.classList.remove('dark-mode');
-                toggleBtn.classList.remove('dark');
-                localStorage.setItem('darkMode', null);
-            }
-            
-            // Check if dark mode is enabled
-            const darkMode = localStorage.getItem('darkMode');
-            if (darkMode === 'enabled') {
-                enableDarkMode();
-            }
-            
-            // Add click event to toggle
-            toggleBtn.addEventListener('click', function() {
-                console.log("Toggle clicked");
-                if (document.body.classList.contains('dark-mode')) {
-                    disableDarkMode();
-                } else {
+            if (toggleBtn) {
+                // Function to enable dark mode
+                function enableDarkMode() {
+                    document.body.classList.add('dark-mode');
+                    toggleBtn.classList.add('dark');
+                    localStorage.setItem('darkMode', 'enabled');
+                }
+                
+                // Function to disable dark mode
+                function disableDarkMode() {
+                    document.body.classList.remove('dark-mode');
+                    toggleBtn.classList.remove('dark');
+                    localStorage.setItem('darkMode', null);
+                }
+                
+                // Check if dark mode is enabled
+                const darkMode = localStorage.getItem('darkMode');
+                if (darkMode === 'enabled') {
                     enableDarkMode();
                 }
-            });
-        }
-        
-        // Animate progress bars on scroll
-        const progressBars = document.querySelectorAll('.progress');
-        
-        const animateProgressBars = () => {
-            progressBars.forEach(bar => {
-                const position = bar.getBoundingClientRect().top;
-                const screenPosition = window.innerHeight / 1.3;
                 
-                if (position < screenPosition) {
-                    const width = bar.parentElement.nextElementSibling.textContent;
-                    bar.style.width = width;
-                }
-            });
-        };
-        
-        window.addEventListener('scroll', animateProgressBars);
-        animateProgressBars(); // Initial check
-        
-        // Reference system
-        console.log("Setting up reference system");
-        
-        // Simple reference form handling
-        const referenceForm = document.getElementById('reference-form');
-        console.log("Reference form found:", referenceForm);
-        
-        if (referenceForm) {
-            referenceForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                console.log("Reference form submitted");
-                
-                // Get form values
-                const name = document.getElementById('ref-name').value;
-                const company = document.getElementById('ref-company').value;
-                const position = document.getElementById('ref-position').value;
-                const code = document.getElementById('ref-code').value;
-                const text = document.getElementById('ref-text').value;
-                
-                console.log("Form data:", { name, company, position, code: "***" });
-                
-                // Check reference code
-                if (code !== 'Marcelo1984') {
-                    console.log("Invalid code");
-                    // Show error message
-                    const messageElement = document.getElementById('submission-message');
-                    messageElement.textContent = 'Invalid reference code. Please check and try again.';
-                    messageElement.className = 'mt-3 p-3 rounded bg-red-100 text-red-700';
-                    messageElement.classList.remove('hidden');
-                    
-                    // Hide after 5 seconds
-                    setTimeout(() => {
-                        messageElement.classList.add('hidden');
-                    }, 5000);
-                } else {
-                    console.log("Valid code, creating issue");
-                    // Show success message
-                    const messageElement = document.getElementById('submission-message');
-                    messageElement.textContent = 'Thank you! Your reference has been submitted for approval.';
-                    messageElement.className = 'mt-3 p-3 rounded bg-green-100 text-green-700';
-                    messageElement.classList.remove('hidden');
-                    
-                    // Create GitHub issue
-                    const issueTitle = `New Reference from ${name} (${company})`;
-                    const issueBody = `
-## New Reference Submission
-
-**Name:** ${name}
-**Position:** ${position}
-**Company:** ${company}
-**Text:** "${text}"
-
----
-*Submitted on: ${new Date().toISOString()}*
-                    `;
-                    
-                    // GitHub issues URL
-                    const issuesUrl = 'https://github.com/MarceloPaesBarreto/my-cv/issues/new';
-                    const url = `${issuesUrl}?title=${encodeURIComponent(issueTitle)}&body=${encodeURIComponent(issueBody)}&labels=reference`;
-                    
-                    // Reset form
-                    referenceForm.reset();
-                    
-                    // Open GitHub issue page in new tab
-                    window.open(url, '_blank');
-                    
-                    // Hide after 5 seconds
-                    setTimeout(() => {
-                        messageElement.classList.add('hidden');
-                    }, 5000);
-                }
-            });
-        } else {
-            console.error("Reference form not found");
-        }
-        
-        // Handle other forms (contact form, etc.)
-        const otherForms = document.querySelectorAll('form:not(#reference-form)');
-        otherForms.forEach(form => {
-            form.addEventListener('submit', (e) => {
-                e.preventDefault();
-                alert('This is a demonstration. In a real implementation, this form would submit data.');
-                form.reset();
-            });
-        });
-        
-        // Try to load references if JSON file exists
-        try {
-            fetch('approved-references.json')
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('References file not found');
+                // Add click event to toggle
+                toggleBtn.addEventListener('click', function() {
+                    if (document.body.classList.contains('dark-mode')) {
+                        disableDarkMode();
+                    } else {
+                        enableDarkMode();
                     }
-                    return response.json();
-                })
-                .then(data => {
-                    console.log("References loaded:", data);
-                    const container = document.getElementById('references-container');
-                    if (container && data.references && data.references.length > 0) {
-                        // Remove loading message if it exists
-                        const loadingMessage = document.getElementById('loading-references');
-                        if (loadingMessage) loadingMessage.remove();
-                        
-                        // Display references
-                        data.references.forEach(ref => {
-                            if (ref.approved) {
-                                const referenceElement = document.createElement('div');
-                                referenceElement.className = 'p-4 bg-gray-50 dark:bg-gray-900 rounded-lg';
-                                referenceElement.innerHTML = `
-                                    <p class="italic">"${ref.text}"</p>
-                                    <p class="font-bold mt-2">- ${ref.author}</p>
-                                    <p>${ref.position}, ${ref.company}</p>
-                                `;
-                                container.appendChild(referenceElement);
-                            }
-                        });
-                    }
-                })
-                .catch(error => {
-                    console.log("Error loading references:", error.message);
                 });
-        } catch (error) {
-            console.log("Could not fetch references:", error);
+            }
         }
-    });
-<script>
-function handleReferenceSubmit(event) {
-    event.preventDefault();
-    
-    // Get form values
-    const name = document.getElementById('ref-name').value;
-    const company = document.getElementById('ref-company').value;
-    const position = document.getElementById('ref-position').value;
-    const code = document.getElementById('ref-code').value;
-    const text = document.getElementById('ref-text').value;
-    
-    // Show what we're doing
-    console.log('Reference form submitted');
-    console.log('Name:', name);
-    console.log('Company:', company);
-    console.log('Position:', position);
-    console.log('Code provided:', code);
-    
-    // Check reference code
-    const expectedCode = 'Marcelo1984'; // Your secret reference code
-    
-    if (code !== expectedCode) {
-        // Show error message
-        const messageElement = document.getElementById('submission-message');
-        messageElement.textContent = 'Invalid reference code. Please check and try again.';
-        messageElement.className = 'mt-3 p-3 rounded bg-red-100 text-red-700';
-        messageElement.classList.remove('hidden');
         
-        // Hide after 5 seconds
-        setTimeout(() => {
-            messageElement.classList.add('hidden');
-        }, 5000);
+        // Initialize progress bars animation
+        function setupProgressBars() {
+            const progressBars = document.querySelectorAll('.progress');
+            
+            const animateProgressBars = () => {
+                progressBars.forEach(bar => {
+                    const position = bar.getBoundingClientRect().top;
+                    const screenPosition = window.innerHeight / 1.3;
+                    
+                    if (position < screenPosition) {
+                        const width = bar.parentElement.nextElementSibling.textContent;
+                        bar.style.width = width;
+                    }
+                });
+            };
+            
+            window.addEventListener('scroll', animateProgressBars);
+            animateProgressBars(); // Initial check
+        }
         
-        console.log('Invalid reference code!');
-        return false;
-    } else {
-        // Show success message
-        const messageElement = document.getElementById('submission-message');
-        messageElement.textContent = 'Thank you! Your reference has been submitted for approval.';
-        messageElement.className = 'mt-3 p-3 rounded bg-green-100 text-green-700';
-        messageElement.classList.remove('hidden');
-        
-        // Create GitHub issue
-        const issueTitle = `New Reference from ${name} (${company})`;
-        const issueBody = `
-## New Reference Submission
-
-**Name:** ${name}
-**Position:** ${position}
-**Company:** ${company}
-**Text:** "${text}"
-
----
-*Submitted on: ${new Date().toISOString()}*
-        `;
-        
-        // GitHub issues URL
-        const issuesUrl = 'https://github.com/MarceloPaesBarreto/my-cv/issues/new';
-        const url = `${issuesUrl}?title=${encodeURIComponent(issueTitle)}&body=${encodeURIComponent(issueBody)}&labels=reference`;
-        
-        // Reset form
-        document.getElementById('reference-form').reset();
-        
-        // Open GitHub issue page in new tab
-        window.open(url, '_blank');
-        
-        // Hide after 5 seconds
-        setTimeout(() => {
-            messageElement.classList.add('hidden');
-        }, 5000);
-        
-        console.log('Valid reference code, submitted!');
-        return false;
-    }
-}
-</script>
+        // Initialize everything when the DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set up dark mode
+            setupDarkMode();
+            
+            // Set up progress bars
+            setupProgressBars();
+            
+            // Load Google Translate
+            loadGoogleTranslate();
+        });
+    </script>
 </body>
 </html>
-
-
