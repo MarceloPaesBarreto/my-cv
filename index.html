@@ -261,7 +261,7 @@
             display: flex;
             align-items: center;
             position: absolute;
-            right: 170px;
+            right: 200px; /* Increase this value to move it further left */
             top: 50%;
             transform: translateY(-50%);
             z-index:10;
@@ -344,6 +344,7 @@
             align-items: center;
             text-decoration: none;
             transition: background-color 0.3s ease;
+            z-index: 5; /*Lower z-index than toggle */
         }
         
         .cv-btn:hover {
