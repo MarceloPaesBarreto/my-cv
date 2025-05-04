@@ -1253,97 +1253,152 @@
         
         window.addEventListener('scroll', animateProgressBars);
         animateProgressBars(); // Initial check
-    });
-    
-    // Form submission (for demonstration)
-    document.addEventListener('DOMContentLoaded', function() {
-        const forms = document.querySelectorAll('form');
-        forms.forEach(form => {
-            form.addEventListener('submit', (e) => {
-                e.preventDefault();
-                alert('This is a demonstration. In a real implementation, this form would submit data.');
-                form.reset();
-            });
-        });
-    });
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
 
-    <script>
-
-// References handling system
-document.addEventListener('DOMContentLoaded', function() {
-    // Load approved references
-    loadApprovedReferences();
-    
-    // Set up reference form submission
-    const referenceForm = document.getElementById('reference-form');
-    if (referenceForm) {
-        referenceForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            submitReference();
-        });
-    }
-});
-
-function loadApprovedReferences() {
-    const container = document.getElementById('references-container');
-    const loadingText = document.getElementById('loading-references');
-    
-    if (!container) return;
-    
-    // Fetch references from the JSON file
-    fetch('approved-references.json')
-        .then(response => response.json())
-        .then(data => {
-            if (loadingText) loadingText.remove();
+<!-- Google Translate Integration -->
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            includedLanguages: 'en,pt,fr,de,pl,es', // English, Portuguese, French, German, Polish, Spanish
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+            autoDisplay: false
+        }, 'google_translate_element');
+        
+        // Connect flag buttons to Google Translate
+        setTimeout(function() {
+            const langMap = {
+                'en': 'English',
+                'pt': 'Portuguese',
+                'fr': 'French', 
+                'de': 'German',
+                'pl': 'Polish',
+                'es': 'Spanish'
+            };
             
-            if (data.references && data.references.length > 0) {
-                // Create and append reference elements
-                data.references.forEach(ref => {
-                    if (ref.approved) {
-                        const referenceElement = document.createElement('div');
-                        referenceElement.className = 'p-4 bg-gray-50 dark:bg-gray-900 rounded-lg';
-                        referenceElement.innerHTML = `
-                            <p class="italic">"${ref.text}"</p>
-                            <p class="font-bold mt-2">- ${ref.author}</p>
-                            <p>${ref.position}, ${ref.company}</p>
-                        `;
-                        container.appendChild(referenceElement);
+            document.querySelectorAll('.language-flag').forEach(flag => {
+                flag.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const lang = this.getAttribute('data-lang');
+                    const googleCombo = document.querySelector('.goog-te-combo');
+                    if (googleCombo) {
+                        // Find the option with text content matching our language
+                        for (let i = 0; i < googleCombo.options.length; i++) {
+                            if (googleCombo.options[i].text.includes(langMap[lang])) {
+                                googleCombo.selectedIndex = i;
+                                googleCombo.dispatchEvent(new Event('change'));
+                                break;
+                            }
+                        }
                     }
                 });
-            } else {
-                // No references to display
-                const noReferences = document.createElement('p');
-                noReferences.textContent = 'No references available yet.';
-                noReferences.className = 'text-center w-full col-span-2';
-                container.appendChild(noReferences);
-            }
-        })
-        .catch(error => {
-            console.error('Error loading references:', error);
-            if (loadingText) {
-                loadingText.textContent = 'No references available yet.';
-            }
-        });
-}
-
-function submitReference() {
-    const name = document.getElementById('ref-name').value;
-    const company = document.getElementById('ref-company').value;
-    const position = document.getElementById('ref-position').value;
-    const code = document.getElementById('ref-code').value;
-    const text = document.getElementById('ref-text').value;
-    
-    // Simple validation for the reference code (change this to your desired code)
-    const expectedCode = 'Marcelo1984'; // Your secret reference code
-    
-    if (code !== expectedCode) {
-        showSubmissionMessage('Invalid reference code. Please check and try again.', 'error');
-        return;
+            });
+        }, 1000);
     }
-    
-    // Create GitHub issue with the reference
-    const issueTitle = `New Reference from ${name} (${company})`;
-    const issueBody = `
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<script>
+    // Dark mode toggle functionality (fixed version)
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log("DOM loaded - Setting up dark mode");
+        const toggleBtn = document.getElementById('toggle');
+        
+        if (toggleBtn) {
+            // Function to enable dark mode
+            function enableDarkMode() {
+                document.body.classList.add('dark-mode');
+                toggleBtn.classList.add('dark');
+                localStorage.setItem('darkMode', 'enabled');
+            }
+            
+            // Function to disable dark mode
+            function disableDarkMode() {
+                document.body.classList.remove('dark-mode');
+                toggleBtn.classList.remove('dark');
+                localStorage.setItem('darkMode', null);
+            }
+            
+            // Check if dark mode is enabled
+            const darkMode = localStorage.getItem('darkMode');
+            if (darkMode === 'enabled') {
+                enableDarkMode();
+            }
+            
+            // Add click event to toggle
+            toggleBtn.addEventListener('click', function() {
+                console.log("Toggle clicked");
+                if (document.body.classList.contains('dark-mode')) {
+                    disableDarkMode();
+                } else {
+                    enableDarkMode();
+                }
+            });
+        }
+        
+        // Animate progress bars on scroll
+        const progressBars = document.querySelectorAll('.progress');
+        
+        const animateProgressBars = () => {
+            progressBars.forEach(bar => {
+                const position = bar.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (position < screenPosition) {
+                    const width = bar.parentElement.nextElementSibling.textContent;
+                    bar.style.width = width;
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', animateProgressBars);
+        animateProgressBars(); // Initial check
+        
+        // Reference system
+        console.log("Setting up reference system");
+        
+        // Simple reference form handling
+        const referenceForm = document.getElementById('reference-form');
+        console.log("Reference form found:", referenceForm);
+        
+        if (referenceForm) {
+            referenceForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                console.log("Reference form submitted");
+                
+                // Get form values
+                const name = document.getElementById('ref-name').value;
+                const company = document.getElementById('ref-company').value;
+                const position = document.getElementById('ref-position').value;
+                const code = document.getElementById('ref-code').value;
+                const text = document.getElementById('ref-text').value;
+                
+                console.log("Form data:", { name, company, position, code: "***" });
+                
+                // Check reference code
+                if (code !== 'Marcelo1984') {
+                    console.log("Invalid code");
+                    // Show error message
+                    const messageElement = document.getElementById('submission-message');
+                    messageElement.textContent = 'Invalid reference code. Please check and try again.';
+                    messageElement.className = 'mt-3 p-3 rounded bg-red-100 text-red-700';
+                    messageElement.classList.remove('hidden');
+                    
+                    // Hide after 5 seconds
+                    setTimeout(() => {
+                        messageElement.classList.add('hidden');
+                    }, 5000);
+                } else {
+                    console.log("Valid code, creating issue");
+                    // Show success message
+                    const messageElement = document.getElementById('submission-message');
+                    messageElement.textContent = 'Thank you! Your reference has been submitted for approval.';
+                    messageElement.className = 'mt-3 p-3 rounded bg-green-100 text-green-700';
+                    messageElement.classList.remove('hidden');
+                    
+                    // Create GitHub issue
+                    const issueTitle = `New Reference from ${name} (${company})`;
+                    const issueBody = `
 ## New Reference Submission
 
 **Name:** ${name}
@@ -1353,37 +1408,78 @@ function submitReference() {
 
 ---
 *Submitted on: ${new Date().toISOString()}*
-    `;
-    
-    // GitHub issues URL to your repository (update with your actual username/repository)
-    const repoOwner = 'MarceloPaesBarreto'; // Your GitHub username
-    const repoName = 'my-cv'; // Your repository name
-    const issuesUrl = `https://github.com/${repoOwner}/${repoName}/issues/new`;
-    
-    // Open a new window with a pre-filled GitHub issue
-    const url = `${issuesUrl}?title=${encodeURIComponent(issueTitle)}&body=${encodeURIComponent(issueBody)}&labels=reference`;
-    window.open(url, '_blank');
-    
-    showSubmissionMessage('Thank you! Your reference has been submitted for approval.', 'success');
-    document.getElementById('reference-form').reset();
-}
-
-function showSubmissionMessage(message, type) {
-    const messageElement = document.getElementById('submission-message');
-    if (!messageElement) return;
-    
-    messageElement.textContent = message;
-    messageElement.className = `mt-3 p-3 rounded ${type === 'error' ? 'bg-red-100 text-red-700' : 'bg-green-100 text-green-700'}`;
-    messageElement.classList.remove('hidden');
-    
-    // Hide the message after 5 seconds
-    setTimeout(() => {
-        messageElement.classList.add('hidden');
-    }, 5000);
-}
-
-
-<script>
+                    `;
+                    
+                    // GitHub issues URL
+                    const issuesUrl = 'https://github.com/MarceloPaesBarreto/my-cv/issues/new';
+                    const url = `${issuesUrl}?title=${encodeURIComponent(issueTitle)}&body=${encodeURIComponent(issueBody)}&labels=reference`;
+                    
+                    // Reset form
+                    referenceForm.reset();
+                    
+                    // Open GitHub issue page in new tab
+                    window.open(url, '_blank');
+                    
+                    // Hide after 5 seconds
+                    setTimeout(() => {
+                        messageElement.classList.add('hidden');
+                    }, 5000);
+                }
+            });
+        } else {
+            console.error("Reference form not found");
+        }
+        
+        // Handle other forms (contact form, etc.)
+        const otherForms = document.querySelectorAll('form:not(#reference-form)');
+        otherForms.forEach(form => {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('This is a demonstration. In a real implementation, this form would submit data.');
+                form.reset();
+            });
+        });
+        
+        // Try to load references if JSON file exists
+        try {
+            fetch('approved-references.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('References file not found');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log("References loaded:", data);
+                    const container = document.getElementById('references-container');
+                    if (container && data.references && data.references.length > 0) {
+                        // Remove loading message if it exists
+                        const loadingMessage = document.getElementById('loading-references');
+                        if (loadingMessage) loadingMessage.remove();
+                        
+                        // Display references
+                        data.references.forEach(ref => {
+                            if (ref.approved) {
+                                const referenceElement = document.createElement('div');
+                                referenceElement.className = 'p-4 bg-gray-50 dark:bg-gray-900 rounded-lg';
+                                referenceElement.innerHTML = `
+                                    <p class="italic">"${ref.text}"</p>
+                                    <p class="font-bold mt-2">- ${ref.author}</p>
+                                    <p>${ref.position}, ${ref.company}</p>
+                                `;
+                                container.appendChild(referenceElement);
+                            }
+                        });
+                    }
+                })
+                .catch(error => {
+                    console.log("Error loading references:", error.message);
+                });
+        } catch (error) {
+            console.log("Could not fetch references:", error);
+        }
+    });
+</script>
 
 </script>
 </body>
