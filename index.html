@@ -573,6 +573,21 @@
 .dark-mode textarea::placeholder {
     color: #a0aec0;
 }
+
+/* Reference submission messages */
+.bg-red-100 {
+    background-color: #fee2e2;
+}
+.text-red-700 {
+    color: #b91c1c;
+}
+.bg-green-100 {
+    background-color: #dcfce7;
+}
+.text-green-700 {
+    color: #15803d;
+}
+      
     </style>
 </head>
 <body>
@@ -978,43 +993,44 @@
         </div>
         
         <div class="card" id="references">
-            <h2>References</h2>
-            <p class="mb-4">Professional references available upon request. Please use the form below to submit a reference.</p>
-            
-            <div class="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg mb-4">
-                <form class="contact-form" id="reference-form">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="company">Company</label>
-                            <input type="text" id="company" class="form-control" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="reference">Reference</label>
-                        <textarea id="reference" class="form-control" rows="4" required></textarea>
-                    </div>
-                    <button type="submit" class="btn">Submit Reference</button>
-                </form>
-            </div>
-            
+    <h2>References</h2>
+    <p class="mb-4">Professional references from colleagues and supervisors are displayed below. If you've been asked to provide a reference, please fill out the form.</p>
+    
+    <div class="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg mb-4">
+        <form class="reference-form" id="reference-form">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="p-4 bg-gray-50 dark:bg-gray-900 rounded-lg">
-                    <p class="italic">"Marcelo is an exceptional team lead who consistently delivers results while maintaining a positive team environment."</p>
-                    <p class="font-bold mt-2">- Reference placeholder</p>
-                    <p>Former Manager</p>
+                <div class="form-group">
+                    <label for="ref-name">Name</label>
+                    <input type="text" id="ref-name" class="form-control" required>
                 </div>
-                
-                <div class="p-4 bg-gray-50 dark:bg-gray-900 rounded-lg">
-                    <p class="italic">"His technical knowledge in Azure and problem-solving skills have been invaluable to our team."</p>
-                    <p class="font-bold mt-2">- Reference placeholder</p>
-                    <p>Colleague</p>
+                <div class="form-group">
+                    <label for="ref-company">Company</label>
+                    <input type="text" id="ref-company" class="form-control" required>
                 </div>
             </div>
-        </div>
+            <div class="form-group">
+                <label for="ref-position">Position</label>
+                <input type="text" id="ref-position" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="ref-code">Reference Code</label>
+                <input type="text" id="ref-code" class="form-control" required>
+                <small class="text-gray-500 dark:text-gray-400">Please enter the reference code provided to you</small>
+            </div>
+            <div class="form-group">
+                <label for="ref-text">Reference</label>
+                <textarea id="ref-text" class="form-control" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn">Submit Reference</button>
+            <p id="submission-message" class="mt-3 hidden"></p>
+        </form>
+    </div>
+    
+    <div id="references-container" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- References will be loaded here by JavaScript -->
+        <p id="loading-references">Loading references...</p>
+    </div>
+</div>
         
         <div class="card" id="contact">
             <h2>Contact Me</h2>
@@ -1250,6 +1266,113 @@
             });
         });
     });
+<script>
+    // References handling
+document.addEventListener('DOMContentLoaded', function() {
+    // Load approved references
+    loadApprovedReferences();
+    
+    // Set up reference form submission
+    const referenceForm = document.getElementById('reference-form');
+    if (referenceForm) {
+        referenceForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            submitReference();
+        });
+    }
+});
+
+function loadApprovedReferences() {
+    const container = document.getElementById('references-container');
+    const loadingText = document.getElementById('loading-references');
+    
+    // Fetch references from the JSON file
+    fetch('approved-references.json')
+        .then(response => response.json())
+        .then(data => {
+            if (loadingText) loadingText.remove();
+            
+            if (data.references && data.references.length > 0) {
+                data.references.forEach(ref => {
+                    if (ref.approved) {
+                        const referenceElement = document.createElement('div');
+                        referenceElement.className = 'p-4 bg-gray-50 dark:bg-gray-900 rounded-lg';
+                        referenceElement.innerHTML = `
+                            <p class="italic">"${ref.text}"</p>
+                            <p class="font-bold mt-2">- ${ref.author}</p>
+                            <p>${ref.position}, ${ref.company}</p>
+                        `;
+                        container.appendChild(referenceElement);
+                    }
+                });
+            } else {
+                const noReferences = document.createElement('p');
+                noReferences.textContent = 'No references available yet.';
+                noReferences.className = 'text-center w-full col-span-2';
+                container.appendChild(noReferences);
+            }
+        })
+        .catch(error => {
+            console.error('Error loading references:', error);
+            if (loadingText) {
+                loadingText.textContent = 'No references available yet.';
+            }
+        });
+}
+
+function submitReference() {
+    const name = document.getElementById('ref-name').value;
+    const company = document.getElementById('ref-company').value;
+    const position = document.getElementById('ref-position').value;
+    const code = document.getElementById('ref-code').value;
+    const text = document.getElementById('ref-text').value;
+    
+    // Simple validation for the reference code (you can set this to whatever you want)
+    const expectedCode = 'Marcelo2025'; // Your secret code
+    
+    if (code !== expectedCode) {
+        showSubmissionMessage('Invalid reference code. Please check and try again.', 'error');
+        return;
+    }
+    
+    // Create GitHub issue with the reference
+    const issueTitle = `New Reference from ${name} (${company})`;
+    const issueBody = `
+## New Reference Submission
+
+**Name:** ${name}
+**Position:** ${position}
+**Company:** ${company}
+**Text:** "${text}"
+
+---
+*Submitted on: ${new Date().toISOString()}*
+    `;
+    
+    // GitHub issues URL to your repository
+    const issuesUrl = 'https://github.com/MarceloPaesBarreto/Portifole-Page/issues/new';
+    
+    // Open a new window with a pre-filled GitHub issue
+    const url = `${issuesUrl}?title=${encodeURIComponent(issueTitle)}&body=${encodeURIComponent(issueBody)}&labels=reference`;
+    window.open(url, '_blank');
+    
+    showSubmissionMessage('Thank you! Your reference has been submitted for approval.', 'success');
+    document.getElementById('reference-form').reset();
+}
+
+function showSubmissionMessage(message, type) {
+    const messageElement = document.getElementById('submission-message');
+    messageElement.textContent = message;
+    messageElement.className = `mt-3 p-3 rounded ${type === 'error' ? 'bg-red-100 text-red-700' : 'bg-green-100 text-green-700'}`;
+    messageElement.classList.remove('hidden');
+    
+    setTimeout(() => {
+        messageElement.classList.add('hidden');
+    }, 5000);
+}
+
+<script>
+
 </script>
 </body>
 </html>
